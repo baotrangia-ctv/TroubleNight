@@ -6,8 +6,14 @@
   "_entityId": "8wS8WgtL",
   "children": [],
   "prefabVariant": null,
-  "activeValue": null,
-  "unlockedValue": null,
+  "activeValue": {
+    "selfValue": true,
+    "valueTag": "activeValue"
+  },
+  "unlockedValue": {
+    "selfValue": true,
+    "valueTag": "unlockedValue"
+  },
   "editorLockValue": false,
   "editorVisibleValue": true,
   "modId": 42,
@@ -125,8 +131,8 @@
     "damaged": 100,
     "move_speed": 100,
     "jump_height": 100,
-    "enable_active_skill": true,
-    "enable_passive_skill": true,
+    "enable_active_skill": false,
+    "enable_passive_skill": false,
     "global_active_skill_cd_percent": 100,
     "playerskill_transform_cd_percent": 100,
     "playerskill_epchangetohp_cd_percent": 100,
@@ -168,7 +174,7 @@
     "MainZombieNum": 15,
     "TransfromSwitch": true,
     "LevelUpSwitch": true,
-    "pet_enable": true,
+    "pet_enable": false,
     "pet_skillenable": true,
     "RaceLastTime": 30,
     "ParkourRankSwitch": false,
@@ -198,8 +204,8 @@
     "HalfwayJoinNumberLimit": true,
     "HalfwayJoinNumber": 5,
     "EnableHalfwayJoinEffectTime": true,
-    "enable_weapon_skin": true,
-    "enable_weapon_skill": true,
+    "enable_weapon_skin": false,
+    "enable_weapon_skill": false,
     "EnableDeathObserve": true,
     "unlimited_bullet": false,
     "unlimited_gloowall": false,
@@ -209,9 +215,17 @@
     "playerskill_teleporter_cd_percent": 100,
     "playerskill_fireboyflame_cd_percent": 100,
     "EnableInventoryDrop": false,
-    "playerskill_autopathbomb_cd_percent": 100
+    "playerskill_autopathbomb_cd_percent": 100,
+    "EnableAOIFilter": false,
+    "CameraViewingAngleRestrictionType": 0,
+    "playerskill_cityhero_cd_percent": 100,
+    "playerskill_electricgirl_cd_percent": 100,
+    "playerskill_auroraboy_cd_percent": 100,
+    "DisableEnemyFootstepVibrate": false
   },
   "modOpen": true,
-  "_entityName": "Mechanism模组"
+  "_entityName": "T_43_YU_WS_MODULE_MECHANISM",
+  "EnableInternalWorkflowLogic": true,
+  "showSwitch": false
 }
-//"{FE:{"v":"0.1.2974255","c":{"FF":4404},"s":100}
+//"{FE:{"v":"1.14.3847898","c":{"FF":5001},"s":100}

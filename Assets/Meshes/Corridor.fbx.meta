@@ -1,0 +1,87 @@
+{
+  "fileId": "3cjfmv2owaf-mei0hm36-qaxv6uitnfh",
+  "globalscale": 1,
+  "properties": {
+    "Common": ""
+  },
+  "subDynamicResources": {},
+  "version": "1.5.2",
+  "manifest": {
+    "Meshes": [
+      {
+        "Name": "CornerWall.~@FFFUB",
+        "MeshName": "CornerWall",
+        "Type": "common",
+        "OrgExtName": ".~@FFFUB"
+      },
+      {
+        "Name": "Corridor.~@FFFUB",
+        "MeshName": "Corridor",
+        "Type": "common",
+        "OrgExtName": ".~@FFFUB"
+      }
+    ],
+    "BoneInfos": [],
+    "Anims": [],
+    "ManifestJSON": {
+      "FBXName": "Corridor",
+      "ImportSucceeded": true,
+      "MaterialCount": 1,
+      "MaterialDetail": [
+        {
+          "Index": 0,
+          "MaterialName": ""
+        }
+      ],
+      "MeshCount": 2,
+      "MeshDetail": [
+        {
+          "MeshName": "CornerWall",
+          "MaterialIndex": [
+            0
+          ],
+          "Transform": {
+            "Position": [
+              0,
+              0,
+              0
+            ],
+            "Rotation": [
+              -90,
+              0,
+              0
+            ],
+            "Scale": [
+              245.388,
+              10.6966,
+              270.097
+            ]
+          }
+        },
+        {
+          "MeshName": "Corridor",
+          "MaterialIndex": [
+            0
+          ],
+          "Transform": {
+            "Position": [
+              24.0029,
+              0.345128,
+              -2.46914
+            ],
+            "Rotation": [
+              -90,
+              0,
+              0
+            ],
+            "Scale": [
+              100,
+              100,
+              419.562
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

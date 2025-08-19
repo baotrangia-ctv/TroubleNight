@@ -1,0 +1,207 @@
+{
+  "fileId": "nyp1zq6rkm9-mei0c1qo-xvo9cgj7ljr",
+  "globalscale": 1,
+  "properties": {
+    "Common": ""
+  },
+  "subDynamicResources": {},
+  "version": "1.5.2",
+  "manifest": {
+    "Meshes": [
+      {
+        "Name": "DoorWall.~@FFFUB",
+        "MeshName": "DoorWall",
+        "Type": "common",
+        "OrgExtName": ".~@FFFUB"
+      },
+      {
+        "Name": "LeftDoor.~@FFFUB",
+        "MeshName": "LeftDoor",
+        "Type": "common",
+        "OrgExtName": ".~@FFFUB"
+      },
+      {
+        "Name": "RightDoor.~@FFFUB",
+        "MeshName": "RightDoor",
+        "Type": "common",
+        "OrgExtName": ".~@FFFUB"
+      },
+      {
+        "Name": "Room.~@FFFUB",
+        "MeshName": "Room",
+        "Type": "common",
+        "OrgExtName": ".~@FFFUB"
+      },
+      {
+        "Name": "Wall.~@FFFUB",
+        "MeshName": "Wall",
+        "Type": "common",
+        "OrgExtName": ".~@FFFUB"
+      },
+      {
+        "Name": "Window.~@FFFUB",
+        "MeshName": "Window",
+        "Type": "common",
+        "OrgExtName": ".~@FFFUB"
+      }
+    ],
+    "BoneInfos": [],
+    "Anims": [],
+    "ManifestJSON": {
+      "FBXName": "Classroom",
+      "ImportSucceeded": true,
+      "MaterialCount": 2,
+      "MaterialDetail": [
+        {
+          "Index": 0,
+          "MaterialName": ""
+        },
+        {
+          "Index": 1,
+          "MaterialName": "Material"
+        }
+      ],
+      "MeshCount": 6,
+      "MeshDetail": [
+        {
+          "MeshName": "DoorWall",
+          "MaterialIndex": [
+            0
+          ],
+          "Transform": {
+            "Position": [
+              -9.52152,
+              1,
+              23
+            ],
+            "Rotation": [
+              -90,
+              0,
+              0
+            ],
+            "Scale": [
+              100,
+              100,
+              100
+            ]
+          }
+        },
+        {
+          "MeshName": "LeftDoor",
+          "MaterialIndex": [
+            0
+          ],
+          "Transform": {
+            "Position": [
+              -3.73943,
+              2.20867e-8,
+              42.6274
+            ],
+            "Rotation": [
+              -90,
+              0,
+              0
+            ],
+            "Scale": [
+              100,
+              100,
+              100
+            ]
+          }
+        },
+        {
+          "MeshName": "RightDoor",
+          "MaterialIndex": [
+            0
+          ],
+          "Transform": {
+            "Position": [
+              -6.39551,
+              2.20867e-8,
+              42.6274
+            ],
+            "Rotation": [
+              90,
+              0,
+              0
+            ],
+            "Scale": [
+              -100,
+              -100,
+              -100
+            ]
+          }
+        },
+        {
+          "MeshName": "Room",
+          "MaterialIndex": [
+            1
+          ],
+          "Transform": {
+            "Position": [
+              -0.119212,
+              -0.202429,
+              -14.8741
+            ],
+            "Rotation": [
+              -90,
+              90,
+              0
+            ],
+            "Scale": [
+              100,
+              100,
+              100
+            ]
+          }
+        },
+        {
+          "MeshName": "Wall",
+          "MaterialIndex": [
+            0
+          ],
+          "Transform": {
+            "Position": [
+              -0.263487,
+              -0.670787,
+              22.8417
+            ],
+            "Rotation": [
+              -90,
+              0,
+              0
+            ],
+            "Scale": [
+              100,
+              100,
+              100
+            ]
+          }
+        },
+        {
+          "MeshName": "Window",
+          "MaterialIndex": [
+            0
+          ],
+          "Transform": {
+            "Position": [
+              -44.9793,
+              3.30379,
+              15.1621
+            ],
+            "Rotation": [
+              -90,
+              0,
+              0
+            ],
+            "Scale": [
+              100,
+              100,
+              100
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

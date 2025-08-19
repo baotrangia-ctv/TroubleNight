@@ -3,3 +3,4 @@ Cache/
 Libraries/
 Temp/
 *.lock
+_Test/

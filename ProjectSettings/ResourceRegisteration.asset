@@ -20,16 +20,8 @@
       "id": "ugcscript",
       "children": []
     },
-    "ugcscriptclient": {
-      "id": "ugcscriptclient",
-      "children": []
-    },
     "eca": {
       "id": "eca",
-      "children": []
-    },
-    "ecaclient": {
-      "id": "ecaclient",
       "children": []
     },
     "texture": {
@@ -79,7 +71,16 @@
     "textureResource": {
       "id": "textureResource",
       "children": []
+    },
+    "mesh": {
+      "id": "mesh",
+      "children": []
+    },
+    "material": {
+      "id": "material",
+      "children": []
     }
-  }
+  },
+  "children": []
 }
-//"{FE:{"v":"0.1.2974255","c":{"FF":4404},"s":100}
+//"{FE:{"v":"1.14.3847898","c":{"FF":5001},"s":100}
