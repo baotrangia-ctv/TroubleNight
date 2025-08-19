@@ -53,10 +53,27 @@
     "Entity": {},
     "Component": {}
   },
-  "globalGraphs": [],
+  "globalGraphs": [
+    {
+      "fileId": "e2ixssem7zi-megkl6aj-emilx58z3m",
+      "filePath": "Assets\\Scripts\\Managers\\GameManager.fcg",
+      "_tag": {
+        "type": "GFileRefer"
+      },
+      "fileType": "ugcscript"
+    },
+    {
+      "fileId": "5tb9t53dfmo-mei8emgs-qbjxflxchfe",
+      "filePath": "Assets\\Scripts\\Managers\\QuestManagers.fcg",
+      "_tag": {
+        "type": "GFileRefer"
+      },
+      "fileType": "ugcscript"
+    }
+  ],
   "_entityName": "T_43_YU_WS_MODULE_GLOBAL",
   "ReduceLogicFrame": false,
   "CustomMatchResult": true,
   "showSwitch": false
 }
-//"{FE:{"v":"0.0.0","c":{"FF":4701},"s":100}
+//"{FE:{"v":"1.14.3847898","c":{"FF":5001},"s":100}

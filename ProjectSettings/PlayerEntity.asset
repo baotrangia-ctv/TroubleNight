@@ -13,8 +13,14 @@
       "_entityId": "cpZtVQOB",
       "children": [],
       "prefabVariant": null,
-      "activeValue": null,
-      "unlockedValue": null,
+      "activeValue": {
+        "selfValue": true,
+        "valueTag": "activeValue"
+      },
+      "unlockedValue": {
+        "selfValue": true,
+        "valueTag": "unlockedValue"
+      },
       "editorLockValue": false,
       "editorVisibleValue": true,
       "CameraType": "Classic",
@@ -36,13 +42,47 @@
     }
   ],
   "prefabVariant": null,
-  "activeValue": null,
-  "unlockedValue": null,
+  "activeValue": {
+    "selfValue": true,
+    "valueTag": "activeValue"
+  },
+  "unlockedValue": {
+    "selfValue": true,
+    "valueTag": "unlockedValue"
+  },
   "editorLockValue": false,
   "editorVisibleValue": true,
-  "ecaProps": {},
+  "ecaProps": {
+    "Player": {},
+    "FightingEntity": {},
+    "AimableEntity": {},
+    "Entity": {},
+    "ScoreableEntity": {},
+    "RankableEntity": {},
+    "Visibility": {},
+    "BuffableEntity": {},
+    "FormulableEntity": {},
+    "AnimationControllerAble": {}
+  },
   "ecaScript": null,
-  "ecaScripts": [],
+  "ecaScripts": [
+    {
+      "fileId": "pvczsgw6mji-mei8a3z9-w5ce7f8sw8",
+      "filePath": "Assets\\Scripts\\Players\\PlayerEntity.fcg",
+      "_tag": {
+        "type": "GFileRefer"
+      },
+      "fileType": "ugcscript"
+    },
+    {
+      "fileId": "wuxybgyai8-meia75n1-g9819pu9f5f",
+      "filePath": "Assets\\Scripts\\Players\\PlayerQuests.fcg",
+      "_tag": {
+        "type": "GFileRefer"
+      },
+      "fileType": "ugcscript"
+    }
+  ],
   "avatarInfo": null,
   "sceneData": {
     "enableDepthMap": false,
@@ -238,7 +278,14 @@
     "playerskill_teleporter_cd_percent": 100,
     "playerskill_fireboyflame_cd_percent": 100,
     "EnableInventoryDrop": false,
-    "playerskill_autopathbomb_cd_percent": 100
+    "playerskill_autopathbomb_cd_percent": 100,
+    "EnableAOIFilter": false,
+    "CameraViewingAngleRestrictionType": 0,
+    "playerskill_cityhero_cd_percent": 100,
+    "playerskill_electricgirl_cd_percent": 100,
+    "playerskill_auroraboy_cd_percent": 100,
+    "DisableEnemyFootstepVibrate": false,
+    "receive_damage": 100
   },
   "physicsData": {
     "ECCTParam_Gravity": {
@@ -262,8 +309,9 @@
     "ECCTParam_PlayerPhysicalLayer": 0,
     "ECCTParam_EnableRotateWithGravity": false
   },
-  "_entityName": "FE_0_HW_GAME_EDITOR_PLAYERSETTING",
+  "_entityName": "T_43_YU_WS_MODULE_PLAYER",
   "modId": 11,
-  "modOpen": true
+  "modOpen": true,
+  "showSwitch": false
 }
-//"{FE:{"v":"0.1.2974255","c":{"FF":4404},"s":100}
+//"{FE:{"v":"1.14.3847898","c":{"FF":5001},"s":100}

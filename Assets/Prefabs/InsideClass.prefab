@@ -1144,7 +1144,7 @@
           },
           "unlockedValue": null,
           "position": {
-            "x": -7.599998474121094,
+            "x": -7.5,
             "y": 2.3999996185302734,
             "z": 0
           },
@@ -1155,7 +1155,7 @@
           },
           "rotation": {
             "x": 270,
-            "y": 0,
+            "y": 180,
             "z": 0
           },
           "BTPath": [
@@ -1637,7 +1637,10 @@
     }
   ],
   "prefabVariant": null,
-  "activeValue": null,
+  "activeValue": {
+    "selfValue": true,
+    "valueTag": "activeValue"
+  },
   "unlockedValue": null,
   "editorLockValue": false,
   "editorVisibleValue": true,

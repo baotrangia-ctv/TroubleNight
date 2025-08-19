@@ -1,0 +1,81 @@
+import "Hud.fcc" as Hud
+import "List.fcc" as List
+import "StdLibrary.fcc" as StdLib
+import "EditorGenLib.fcc" as EditorLib
+
+import "../Configs/RoomConfigs.fcg" as RoomConfigs
+
+graph PlayerQuests {
+    MAX_QUESTS = 4
+
+    _CompletedQuests List<int>
+
+    event OnAwake() {
+        _CompletedQuests = List<int>{}
+    }
+
+    event OnPlayerEnterRoom(player entity<Player>, roomQuest int) {
+        if player == thisEntity {
+            HandlePlayerEnterRoom(player, roomQuest as RoomQuest)
+        }
+    }
+
+    event OnPlayerCompletedQuest(player entity<Player>, roomQuest int) {
+        if player == thisEntity && !List.Contain(_CompletedQuests, roomQuest) {
+            List.Append(_CompletedQuests, roomQuest)
+
+            CheckPlayerFinish()
+        }
+    }
+
+    event OnPlayerFinished(player entity<Player>) {
+        var result int = 2 // Lose
+        if player == thisEntity {
+            result = 1 // Win
+            // Teleport user to hidden room
+        }
+
+        CreateBuiltInUI(out var resultBanner, thisEntity<Player>, BuiltInUIType.ResultBannerHud)
+        resultBanner<UIWinOrLoseBanner>.Result = result
+    }
+
+    func HandlePlayerEnterRoom(player entity<Player>, roomQuest RoomQuest) {
+        if List.Contain(_CompletedQuests, roomQuest) {
+            return
+        }
+
+        var roomTitle StringOrLocString = RoomConfigs.GetRoomTitle(roomQuest)
+        var roomDesc StringOrLocString = RoomConfigs.GetRoomDesc(roomQuest)
+
+        CreateBuiltInUI(out var roomBanner, player, BuiltInUIType.OpeningBannerHud)
+        roomBanner<UIOpeningBanner>.Title = roomTitle
+        roomBanner<UIOpeningBanner>.Description = roomDesc
+
+        if roomQuest == RoomQuest.RoomQuest_1 {
+
+        } else if roomQuest == RoomQuest.RoomQuest_2 {
+
+        } else if roomQuest == RoomQuest.RoomQuest_3 {
+
+        } else if roomQuest == RoomQuest.RoomQuest_4 {
+
+        } else {}
+
+        start HandlePlayerCompletedQuest(player, roomQuest)
+    }
+
+    async func HandlePlayerCompletedQuest(player entity<Player>, roomQuest RoomQuest) {
+        WaitForMillisecond(3000)
+        DispatchEventWithPlatform(OnPlayerCompletedQuest, player, PlatformType.Both, List<object>{player, roomQuest})
+    }
+
+    func CheckPlayerFinish() {
+        if List.Length(_CompletedQuests) < MAX_QUESTS {
+            return
+        }
+
+        for key, player in GetAllPlayers() {
+            DispatchEventWithPlatform(OnPlayerFinished, player, PlatformType.Both, List<object>{})
+        }
+    }
+}

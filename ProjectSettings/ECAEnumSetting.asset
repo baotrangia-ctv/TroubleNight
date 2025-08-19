@@ -4,7 +4,44 @@
   },
   "_entityId": "F9G9PNGC",
   "enumCount": 0,
-  "enumDefines": {},
-  "enumNameMap": {}
+  "enumDefines": {
+    "CustomEnum64797913": {
+      "label": "RoomQuest",
+      "key": "CustomEnum64797913",
+      "type": "Int",
+      "info": [
+        {
+          "label": "RoomQuest_1",
+          "key": "E91337870",
+          "value": 0,
+          "type": "Int"
+        },
+        {
+          "label": "RoomQuest_2",
+          "key": "E83876638",
+          "value": 1,
+          "type": "Int"
+        },
+        {
+          "label": "RoomQuest_3",
+          "key": "E22637099",
+          "value": 2,
+          "type": "Int"
+        },
+        {
+          "label": "RoomQuest_4",
+          "key": "E69640605",
+          "value": 3,
+          "type": "Int"
+        }
+      ],
+      "isCustom": true,
+      "isDirty": false
+    }
+  },
+  "enumNameMap": {
+    "RoomQuest": "CustomEnum64797913"
+  },
+  "children": []
 }
-//"{FE:{"v":"0.1.2974255","c":{"FF":4404},"s":100}
+//"{FE:{"v":"1.14.3847898","c":{"FF":5001},"s":100}

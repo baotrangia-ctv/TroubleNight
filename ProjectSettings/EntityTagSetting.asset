@@ -3,6 +3,24 @@
     "type": "EntityTagSetting"
   },
   "_entityId": "2f2nLk2W",
-  "TagSetting": []
+  "TagSetting": [
+    {
+      "id": "entityTag19004209",
+      "label": "Quest1"
+    },
+    {
+      "id": "entityTag90166639",
+      "label": "Quest2"
+    },
+    {
+      "id": "entityTag54242431",
+      "label": "Quest3"
+    },
+    {
+      "id": "entityTag30635657",
+      "label": "Quest4"
+    }
+  ],
+  "children": []
 }
-//"{FE:{"v":"0.1.2974255","c":{"FF":4404},"s":100}
+//"{FE:{"v":"1.14.3847898","c":{"FF":5001},"s":100}

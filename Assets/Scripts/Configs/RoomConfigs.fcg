@@ -1,0 +1,24 @@
+import "StdLibrary.fcc" as StdLib
+import "EditorGenLib.fcc" as EditorLib
+
+static graph RoomConfigs {
+    ROOM_TITLE Map<RoomQuest, StringOrLocString> = Map<RoomQuest, StringOrLocString>{
+        RoomQuest.RoomQuest_1: LocString{"PERIOD_TITLE_1", {}},
+        RoomQuest.RoomQuest_2: LocString{"PERIOD_TITLE_2", {}},
+        RoomQuest.RoomQuest_3: LocString{"PERIOD_TITLE_3", {}},
+        RoomQuest.RoomQuest_4: LocString{"PERIOD_TITLE_4", {}},
+    }
+    ROOM_DESC Map<RoomQuest, StringOrLocString> = Map<RoomQuest, StringOrLocString>{
+        RoomQuest.RoomQuest_1: LocString{"PERIOD_DESC_1", {}},
+        RoomQuest.RoomQuest_2: LocString{"PERIOD_DESC_2", {}},
+        RoomQuest.RoomQuest_3: LocString{"PERIOD_DESC_3", {}},
+        RoomQuest.RoomQuest_4: LocString{"PERIOD_DESC_4", {}},
+    }
+
+    func GetRoomTitle(roomQuest RoomQuest) StringOrLocString {
+        return ROOM_TITLE[roomQuest]
+    }
+    func GetRoomDesc(roomQuest RoomQuest) StringOrLocString {
+        return ROOM_DESC[roomQuest]
+    }
+}
