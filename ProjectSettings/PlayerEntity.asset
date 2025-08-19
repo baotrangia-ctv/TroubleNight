@@ -81,6 +81,14 @@
         "type": "GFileRefer"
       },
       "fileType": "ugcscript"
+    },
+    {
+      "fileId": "tqbd0l1kms-meif12nj-17cqgodcr9m",
+      "filePath": "Assets\\Scripts\\HUDs\\HudRoomQuest.fcg",
+      "_tag": {
+        "type": "GFileRefer"
+      },
+      "fileType": "ugcscript"
     }
   ],
   "avatarInfo": null,

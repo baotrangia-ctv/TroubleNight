@@ -1,0 +1,35 @@
+import "Hud.fcc" as Hud
+import "List.fcc" as List
+import "Player.fcc" as Player
+import "StdLibrary.fcc" as StdLib
+import "EditorGenLib.fcc" as EditorLib
+
+import "../HUDs/HudRoomQuest.fcg" as HudRoomQuest
+
+graph CustomUIUtils {
+    event OnCustomButtonTapped(button entity<UIWidgetButton>, player entity<Player>) {
+        if button == GetWidgetFromCustomUI(player, button<UIWidget>.ParentUI, EResUIRoomQuest.StartButton) {
+            LogInfo("[OnCustomButtonTapped] " + player + "pressed StartButton")
+
+            player<HudRoomQuest>.AcceptQuest()
+        } else if button == GetWidgetFromCustomUI(player, button<UIWidget>.ParentUI, EResUIRoomQuest.SkipButton) {
+            LogInfo("[OnCustomButtonTapped] " + player + "pressed SkipButton")
+
+            player<HudRoomQuest>.HideQuestContainer()
+        } else if button == GetWidgetFromCustomUI(player, button<UIWidget>.ParentUI, EResUIRoomQuest.OpenQuestButton) {
+            LogInfo("[OnCustomButtonTapped] " + player + "pressed OpenQuestButton")
+
+            player<HudRoomQuest>.ShowQuestContainer()
+        } else {}
+    }
+
+    func IsContainButton(button entity<UIWidget>, player entity<Player>, buttonIdsList List<CustomHudWidgetID>) bool {
+        for key, buttonId in buttonIdsList {
+            if button == GetWidgetFromCustomUI(player, button<UIWidget>.ParentUI, buttonId) {
+                return true
+            }
+        }
+
+        return false
+    }
+}

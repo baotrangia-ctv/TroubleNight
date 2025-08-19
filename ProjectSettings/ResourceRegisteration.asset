@@ -6,7 +6,33 @@
   "Resource": {
     "ui": {
       "id": "ui",
-      "children": []
+      "children": [
+        {
+          "refer": {
+            "fileId": "px1kxsya07-meidjj2u-tmqmikf909n",
+            "filePath": "Assets\\HUDs\\RoomQuest.ui",
+            "_tag": {
+              "type": "GFileRefer"
+            },
+            "fileType": "ui"
+          },
+          "scriptName": "RoomQuest",
+          "children": [
+            {
+              "id": "4RezVfsZ",
+              "scriptName": "StartButton"
+            },
+            {
+              "id": "UDf8q7EY",
+              "scriptName": "SkipButton"
+            },
+            {
+              "id": "jOAmCzm7",
+              "scriptName": "OpenQuestButton"
+            }
+          ]
+        }
+      ]
     },
     "scene": {
       "id": "scene",

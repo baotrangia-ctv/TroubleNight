@@ -1,0 +1,83 @@
+import "Hud.fcc" as Hud
+import "StdLibrary.fcc" as StdLib
+import "EditorGenLib.fcc" as EditorLib
+
+import "../Configs/RoomConfigs.fcg" as RoomConfigs
+import "../Players/PlayerQuests.fcg" as PlayerQuests
+
+graph HudRoomQuest {
+    _RoomQuest RoomQuest
+
+    _RoomQuestHUD entity<CustomUI>
+    _QuestContainer entity<UIWidget>
+    _OpenQuestButton entity<UIWidgetButton>
+    _QuestTitle entity<UIWidgetLabel>
+    _QuestDesc entity<UIWidgetLabel>
+
+    event OnAwake() {
+
+    }
+
+    event OnPlayerEnterRoom(player entity<Player>, roomQuest int) {
+        if player == thisEntity && !player<PlayerQuests>.IsPassedQuest(roomQuest as RoomQuest) {
+            _RoomQuest = roomQuest as RoomQuest
+
+            ShowRoomQuestHUD()
+        }
+    }
+
+    func InitRoomQuestHUD() {
+        if _RoomQuestHUD != nil {
+            return
+        }
+
+        CreateCustomUI(out var roomQuestHud, thisEntity<Player>, EResUI.RoomQuest)
+        _RoomQuestHUD = roomQuestHud
+
+        _QuestContainer = GetChildByIndex(_RoomQuestHUD, 0) as entity<UIWidget>
+        _OpenQuestButton = GetChildByIndex(_RoomQuestHUD, 1) as entity<UIWidgetButton>
+
+        var title entity<UIWidget> = GetChildByIndex(_QuestContainer, 1) as entity<UIWidget>
+        _QuestTitle = GetChildByIndex(title, 1) as entity<UIWidgetLabel>
+
+        var details entity<UIWidget> = GetChildByIndex(_QuestContainer, 2) as entity<UIWidget>
+        _QuestDesc = GetChildByIndex(details, 0) as entity<UIWidgetLabel>
+
+        HideRoomQuestHUD()
+    }
+
+    func ShowRoomQuestHUD() {
+        InitRoomQuestHUD()
+        UpdateQuestDetails()
+        ShowQuestContainer()
+
+        _RoomQuestHUD<CustomUI>.IsVisible = true
+    }
+
+    func HideRoomQuestHUD() {
+        _RoomQuestHUD<CustomUI>.IsVisible = false
+    }
+
+    func ShowQuestContainer() {
+        _QuestContainer<UIWidget>.Active = true
+        _OpenQuestButton<UIWidget>.Active = false
+    }
+
+    func HideQuestContainer() {
+        _QuestContainer<UIWidget>.Active = false
+        _OpenQuestButton<UIWidget>.Active = true
+    }
+
+    func UpdateQuestDetails() {
+        var questTitle StringOrLocString = RoomConfigs.GetRoomTitle(_RoomQuest)
+        var questDesc StringOrLocString = RoomConfigs.GetRoomDesc(_RoomQuest)
+
+        _QuestTitle<UIWidgetLabel>.Content = questTitle
+        _QuestDesc<UIWidgetLabel>.Content = questDesc
+    }
+
+    func AcceptQuest() {
+        HideRoomQuestHUD()
+        thisEntity<PlayerQuests>.HandlePlayerAcceptQuest(_RoomQuest)
+    }
+}

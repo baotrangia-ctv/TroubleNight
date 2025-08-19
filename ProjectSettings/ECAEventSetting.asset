@@ -64,12 +64,58 @@
       "apiTargetV2": "both",
       "version": 45,
       "key": "signal_75472281"
+    },
+    "signal_89384059": {
+      "name": "OnCustomButtonTapped",
+      "eventType": 0,
+      "enitityType": "Entity",
+      "typeID": 100003,
+      "props": [
+        {
+          "name": "button",
+          "value": "HudButtonWidget",
+          "key": 1
+        },
+        {
+          "name": "player",
+          "value": "Player",
+          "key": 2
+        }
+      ],
+      "propCount": 2,
+      "apiTargetV2": "both",
+      "version": 45,
+      "key": "signal_89384059"
+    },
+    "signal_29671678": {
+      "name": "OnPlayerStartQuest",
+      "eventType": 0,
+      "enitityType": "Entity",
+      "typeID": 100004,
+      "props": [
+        {
+          "name": "player",
+          "value": "Player",
+          "key": 1
+        },
+        {
+          "name": "roomQuest",
+          "value": "Int",
+          "key": 2
+        }
+      ],
+      "propCount": 2,
+      "apiTargetV2": "both",
+      "version": 45,
+      "key": "signal_29671678"
     }
   },
   "customName": {
     "OnPlayerEnterRoom": "signal_16076167",
     "OnPlayerCompletedQuest": "signal_70542801",
-    "OnPlayerFinished": "signal_75472281"
+    "OnPlayerFinished": "signal_75472281",
+    "OnCustomButtonTapped": "signal_89384059",
+    "OnPlayerStartQuest": "signal_29671678"
   },
   "children": []
 }

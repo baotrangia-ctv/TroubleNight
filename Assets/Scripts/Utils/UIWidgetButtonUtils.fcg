@@ -1,0 +1,9 @@
+import "Hud.fcc" as hud 
+import "StdLibrary.fcc" as std
+import "EditorGenLib.fcc" as editorGenLib 
+
+graph UIWidgetButtonUtils {
+    event OnTapped(player entity<Player>) {
+        DispatchEvent(OnCustomButtonTapped, thisEntity<UIWidget>.ParentUI, List<object>{thisEntity, player})                                
+    }
+}
