@@ -1,0 +1,21 @@
+import "StdLibrary.fcc" as StdLib
+import "EditorGenLib.fcc" as EditorLib
+
+static graph MathQuestionConfigs {
+    MATH_QUESTION Map<int, string> = Map<int, string>{
+        1: "(2 × 3) − 5",
+        2: "3 + 3 − 4",
+        3: "2 × 4 − 5",
+        4: "(9 − 3) − 2",
+        5: "2 × 3 + 1 − 2",
+        6: "(8 ÷ 2) + 2",
+        7: "3 × 4 − 5",
+        8: "5 + 6 − 3",
+        9: "(3 × 5) − 6",
+        10: "4 × 3 − 2",
+    }
+
+    func GetMathQuestion(result int) string {
+        return MATH_QUESTION[result]
+    }
+}

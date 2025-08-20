@@ -3,6 +3,9 @@ import "List.fcc" as List
 import "StdLibrary.fcc" as StdLib
 import "EditorGenLib.fcc" as EditorLib
 
+import "../Configs/RoomConfigs.fcg" as RoomConfigs
+import "Player.fcc" as Player
+
 graph PlayerQuests {
     MAX_QUESTS = 4
 
@@ -39,7 +42,7 @@ graph PlayerQuests {
         }
 
         for key, player in GetAllPlayers() {
-            DispatchEventWithPlatform(OnPlayerFinished, player, PlatformType.Both, List<object>{})
+            DispatchEventWithPlatform(OnPlayerFinished, player, PlatformType.Both, List<object>{thisEntity})
         }
     }
 
@@ -58,10 +61,19 @@ graph PlayerQuests {
             return
         }
 
+        var spawnPosition Vector3 = RoomConfigs.GetRoomSpawnPosition(roomQuest)
+        if roomQuest == RoomQuest.RoomQuest_2 {
+            Teleport(thisEntity<Player>, spawnPosition, thisEntity<Player>.Forward)
+        }
+
         start HandlePlayerCompletedQuest(roomQuest)
     }
 
     async func HandlePlayerCompletedQuest(roomQuest RoomQuest) {
+        if roomQuest == RoomQuest.RoomQuest_2 {
+            return
+        }
+
         WaitForMillisecond(3000)
         DispatchEventWithPlatform(OnPlayerCompletedQuest, thisEntity, PlatformType.Both, List<object>{thisEntity, roomQuest})
     }

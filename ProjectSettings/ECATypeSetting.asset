@@ -35,6 +35,37 @@
       "typeID": 41,
       "PropDefines": [],
       "IsPartial": true
+    },
+    "CustomComponent23737886": {
+      "label": "NumberBlocks",
+      "name": "CustomComponent23737886",
+      "bases": [
+        "Component"
+      ],
+      "ecaScripts": [
+        {
+          "fileId": "juyzx134hsj-mejglr0a-h0cn7vmxfqm",
+          "_tag": {
+            "type": "GFileRefer"
+          },
+          "fileType": "ugcscript"
+        }
+      ],
+      "typeID": 100000,
+      "PropDefines": [
+        {
+          "propID": 100001,
+          "name": "PROP_99531787",
+          "label": "BlockNumbers",
+          "type": "ListT_Entity",
+          "value": null,
+          "disabledType": true,
+          "param": {
+            "compType": "InputEditor",
+            "disabled": true
+          }
+        }
+      ]
     }
   }
 }

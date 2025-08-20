@@ -2,7 +2,7 @@
   "_tag": {
     "type": "Material"
   },
-  "_entityId": "mxEbf8R0",
+  "_entityId": "49DbRs3O",
   "children": [],
   "prefabVariant": null,
   "activeValue": {
@@ -16,8 +16,8 @@
   "editorLockValue": false,
   "editorVisibleValue": true,
   "shader": {
-    "fileId": "s-64c4f071-1e93-4613-a3da-bef38339a2ec",
-    "filePath": "lib://ffshaders/BRMobile/UGC/DiffuseColor",
+    "fileId": "s-ea4a068a-065d-4b63-89b5-0ebcf49e2b14",
+    "filePath": "lib://ffshaders/BRMobile/UGC/AlphaBlendColor",
     "_tag": {
       "type": "GFileRefer"
     },
@@ -33,8 +33,8 @@
     "_Brightness": 1,
     "_MainTex": {
       "Texture": {
-        "fileId": "2c952fc36b6aa28b2bef8c6a6c73fec0",
-        "filePath": "lib://fftextures/WorkshopItemTexture/SceneEdit_Cube_Texture_Cement_01.png",
+        "fileId": "ackzecx76in-mejg2za1-313hbe0dvc1",
+        "filePath": "Assets\\Textures\\Numbers\\4.jpg",
         "_tag": {
           "type": "GFileRefer"
         },
@@ -49,18 +49,7 @@
         "y": 0
       }
     },
-    "_BumpMap": {
-      "Texture": null,
-      "Tiling": {
-        "x": 1,
-        "y": 1
-      },
-      "Offset": {
-        "x": 0,
-        "y": 0
-      }
-    },
     "_CullMode": 2
   }
 }
-//"{FE:{"v":"1.0.3072129","c":{"FF":4501},"s":100}
+//"{FE:{"v":"1.14.3847898","c":{"FF":5001},"s":100}

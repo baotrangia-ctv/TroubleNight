@@ -1,0 +1,28 @@
+import "Combat.fcc" as Combat
+import "Player.fcc" as Player
+import "Physics.fcc" as Physics
+import "StdLibrary.fcc" as StdLib
+import "EditorGenLib.fcc" as EditorLib
+
+import "./Configs/RoomConfigs.fcg" as RoomConfigs
+
+graph DeathTrigger {
+    // This is the death trigger zone in minigame 2
+
+    WAIT_REVIVE_DURATION = 5000
+
+    event OnTriggerEnter(target entity<Entity>) {
+        HandleRespawnPlayer(target as entity<Player>)
+    }
+
+    async func HandleRespawnPlayer(player entity<Player>) {
+        DealDamage(player, nil, DamageType.KillZone, 9999)
+
+        var spawnPosition Vector3 = RoomConfigs.GetRoomSpawnPosition(RoomQuest.RoomQuest_2)
+
+        WaitForMillisecond(WAIT_REVIVE_DURATION)
+
+        Teleport(player, spawnPosition, player<Player>.Forward)
+        ReviveAtNextFrame(player)
+    }
+}

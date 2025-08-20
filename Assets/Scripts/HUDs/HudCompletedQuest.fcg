@@ -1,0 +1,44 @@
+import "Hud.fcc" as Hud
+import "StdLibrary.fcc" as StdLib
+import "EditorGenLib.fcc" as EditorLib
+
+graph HudCompletedQuest {
+    _CompletedQuestHUD entity<CustomUI>
+    _ContentLabel entity<UIWidgetLabel>
+
+    event OnPlayerCompletedQuest(player entity<Player>, roomQuest int) {
+        if player == thisEntity {
+            ShowCompletedQuestHUD()
+        }
+    }
+
+    func InitCompletedQuestHUD() {
+        if _CompletedQuestHUD != nil {
+            return
+        }
+
+        CreateCustomUI(out var completedQuestHud, thisEntity<Player>, EResUI.CompletedQuest)
+        _CompletedQuestHUD = completedQuestHud
+
+        var container entity<UIWidget> = GetChildByIndex(_CompletedQuestHUD, 0) as entity<UIWidget>
+        var details entity<UIWidget> = GetChildByIndex(container, 2) as entity<UIWidget>
+        _ContentLabel = GetChildByIndex(details, 0) as entity<UIWidgetLabel>
+    }
+
+    async func ShowCompletedQuestHUD() {
+        InitCompletedQuestHUD()
+
+        _CompletedQuestHUD<CustomUI>.IsVisible = true
+
+        for i = 5, -1, -1 {
+            _ContentLabel<UIWidgetLabel>.Content = LocString{"HUD_TELEPORT", {i}}
+            WaitForMillisecond(1000)
+        }
+
+        HideCompletedQuestHUD()
+    }
+
+    func HideCompletedQuestHUD() {
+        _CompletedQuestHUD<CustomUI>.IsVisible = false
+    }
+}

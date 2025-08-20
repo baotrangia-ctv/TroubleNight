@@ -31,6 +31,30 @@
               "scriptName": "OpenQuestButton"
             }
           ]
+        },
+        {
+          "refer": {
+            "fileId": "4fuomiuaxuy-mejkzyzx-gzd7kafb86v",
+            "filePath": "Assets\\HUDs\\MathQuestion.ui",
+            "_tag": {
+              "type": "GFileRefer"
+            },
+            "fileType": "ui"
+          },
+          "scriptName": "MathQuestion",
+          "children": []
+        },
+        {
+          "refer": {
+            "fileId": "58mj4qd1dl7-mejssqc0-x46mueo78v",
+            "filePath": "Assets\\HUDs\\CompletedQuest.ui",
+            "_tag": {
+              "type": "GFileRefer"
+            },
+            "fileType": "ui"
+          },
+          "scriptName": "CompletedQuest",
+          "children": []
         }
       ]
     },

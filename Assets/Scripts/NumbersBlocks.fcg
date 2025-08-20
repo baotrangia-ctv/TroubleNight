@@ -1,0 +1,92 @@
+import "Hud.fcc" as Hud
+import "Math.fcc" as Math
+import "Workflow.fcc" as Workflow
+import "StdLibrary.fcc" as StdLib
+import "EditorGenLib.fcc" as EditorLib
+
+import "./Configs/MathQuestionConfigs.fcg" as MathQuestionConfigs
+
+graph NumbersBlocks {
+    SPAWN_QUESTION_DURATION = 10000
+    CALCULATE_DURATION = 5000
+
+    _IsSpawnQuestion bool
+    _Result int
+    _Question string
+
+    _MathQuestionHUD entity<CustomUI>
+    _QuestionLabel entity<UIWidgetLabel>
+
+    event OnPhaseStart(phase entity<Phase>) {
+        var phaseIndex int = phase<Phase>.Index
+        if phaseIndex == EPhase.InGame {
+            _IsSpawnQuestion = true
+            SpawnQuestions()
+        } else if phaseIndex == EPhase.End {
+            _IsSpawnQuestion = false
+        } else {}
+    }
+
+    async func SpawnQuestions() {
+        while _IsSpawnQuestion {
+            var newResult int = RandomInt(0, 10) + 1
+            while _Result == newResult {
+                newResult = RandomInt(0, 10) + 1
+            }
+
+            _Result = newResult
+            _Question = MathQuestionConfigs.GetMathQuestion(_Result)
+
+            TurnOnAllBlocks()
+
+            UpdateQuestionLabel()
+
+            WaitForMillisecond(CALCULATE_DURATION)
+
+            TurnOffBlocksExcept(_Result)
+
+            WaitForMillisecond(SPAWN_QUESTION_DURATION)
+        }
+    }
+
+    func InitMathQuestionHUD() {
+        if _MathQuestionHUD != nil {
+            return
+        }
+
+        CreateCustomUI(out var mathQuestionHud, nil, EResUI.MathQuestion)
+        _MathQuestionHUD = mathQuestionHud
+
+        _MathQuestionHUD<CustomUI>.InScene = true
+        _MathQuestionHUD<CustomUI>.WorldPosition = Vector3{-59, -38, -35}
+        _MathQuestionHUD<CustomUI>.Scale = Vector3{18.5, 15, 15}
+        _MathQuestionHUD<CustomUI>.Rotation = Vector3{0, 180, 0}
+
+        var questionContainer entity<UIWidget> = GetChildByIndex(_MathQuestionHUD, 0) as entity<UIWidget>
+        _QuestionLabel = GetChildByIndex(questionContainer, 1) as entity<UIWidgetLabel>
+    }
+
+    func UpdateQuestionLabel() {
+        InitMathQuestionHUD()
+
+        _QuestionLabel<UIWidgetLabel>.Content = _Question
+    }
+
+    func TurnOnAllBlocks() {
+        var blocksList List<entity<Entity>> = thisEntity<NumberBlocks>.BlockNumbers
+        for key, block in blocksList {
+            SetActive(block, true)
+        }
+    }
+
+    func TurnOffBlocksExcept(exceptNumber int) {
+        var blocksList List<entity<Entity>> = thisEntity<NumberBlocks>.BlockNumbers
+        for key, block in blocksList {
+            if key + 1 == exceptNumber {
+                continue
+            }
+
+            SetActive(block, false)
+        }
+    }
+}

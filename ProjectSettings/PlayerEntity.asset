@@ -89,6 +89,14 @@
         "type": "GFileRefer"
       },
       "fileType": "ugcscript"
+    },
+    {
+      "fileId": "5qv72t6pg2k-mejt1o9m-f6zoq6t4nlu",
+      "filePath": "Assets\\Scripts\\HUDs\\HudCompletedQuest.fcg",
+      "_tag": {
+        "type": "GFileRefer"
+      },
+      "fileType": "ugcscript"
     }
   ],
   "avatarInfo": null,

@@ -14,11 +14,32 @@ static graph RoomConfigs {
         RoomQuest.RoomQuest_3: LocString{"PERIOD_DESC_3", {}},
         RoomQuest.RoomQuest_4: LocString{"PERIOD_DESC_4", {}},
     }
+    ROOM_POSITION Map<RoomQuest, Vector3> = Map<RoomQuest, Vector3>{
+        RoomQuest.RoomQuest_1: Vector3{-3, 0, 0},
+        RoomQuest.RoomQuest_2: Vector3{-19, 0, 0},
+        RoomQuest.RoomQuest_3: Vector3{-34, 0, 0},
+        RoomQuest.RoomQuest_4: Vector3{-50, 0, 0},
+    }
+    ROOM_SPAWN_POSITION Map<RoomQuest, Vector3> = Map<RoomQuest, Vector3>{
+        RoomQuest.RoomQuest_1: Vector3{0, 0, 0},
+        RoomQuest.RoomQuest_2: Vector3{-60, -40.5, 30},
+        RoomQuest.RoomQuest_3: Vector3{0, 0, 0},
+        RoomQuest.RoomQuest_4: Vector3{0, 0, 0},
+    }
 
     func GetRoomTitle(roomQuest RoomQuest) StringOrLocString {
         return ROOM_TITLE[roomQuest]
     }
+
     func GetRoomDesc(roomQuest RoomQuest) StringOrLocString {
         return ROOM_DESC[roomQuest]
+    }
+
+    func GetRoomPosition(roomQuest RoomQuest) Vector3 {
+        return ROOM_POSITION[roomQuest]
+    }
+
+    func GetRoomSpawnPosition(roomQuest RoomQuest) Vector3 {
+        return ROOM_SPAWN_POSITION[roomQuest]
     }
 }

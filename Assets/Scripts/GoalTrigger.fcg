@@ -1,0 +1,34 @@
+import "List.fcc" as List
+import "Player.fcc" as Player
+import "Physics.fcc" as Physics
+import "StdLibrary.fcc" as StdLib
+import "EditorGenLib.fcc" as EditorLib
+
+import "./Configs/RoomConfigs.fcg" as RoomConfigs
+
+graph GoalTrigger {
+    _CompletedPlayers List<entity<Player>>
+
+    event OnAwake() {
+        _CompletedPlayers = List<entity<Player>>{}
+    }
+
+    event OnTriggerEnter(target entity<Entity>) {
+        HandlePlayerCompletedQuest(target as entity<Player>)
+    }
+
+    async func HandlePlayerCompletedQuest(player entity<Player>) {
+        if List.Contain(_CompletedPlayers, player) {
+            return
+        }
+
+        List.Append(_CompletedPlayers, player)
+
+        DispatchEventWithPlatform(OnPlayerCompletedQuest, player, PlatformType.Both, List<object>{player, RoomQuest.RoomQuest_2})
+
+        WaitForMillisecond(6000)
+
+        var roomPosition Vector3 = RoomConfigs.GetRoomPosition(RoomQuest.RoomQuest_2)
+        Teleport(player, roomPosition, player<Player>.Forward)
+    }
+}
