@@ -55,6 +55,39 @@
           },
           "scriptName": "CompletedQuest",
           "children": []
+        },
+        {
+          "refer": {
+            "fileId": "duj50570qo5-mejuj1np-xj1hpzwwuee",
+            "filePath": "Assets\\HUDs\\FreeFireQuestion.ui",
+            "_tag": {
+              "type": "GFileRefer"
+            },
+            "fileType": "ui"
+          },
+          "scriptName": "FreeFireQuestion",
+          "children": [
+            {
+              "id": "uibQ0nOn",
+              "scriptName": "Answer1Button"
+            },
+            {
+              "id": "t86K46UA",
+              "scriptName": "Answer2Button"
+            },
+            {
+              "id": "sfjbV9d4",
+              "scriptName": "Answer3Button"
+            },
+            {
+              "id": "AdEIiaQb",
+              "scriptName": "Answer4Button"
+            },
+            {
+              "id": "WCS3m0UE",
+              "scriptName": "Answer5Button"
+            }
+          ]
         }
       ]
     },

@@ -1,0 +1,61 @@
+import "StdLibrary.fcc" as StdLib
+import "EditorGenLib.fcc" as EditorLib
+
+static graph FreeFireQuestionConfigs {
+    FF_QUESTION List<StringOrLocString> = List<StringOrLocString>{
+        LocString{"FFQ_1", {}},
+        LocString{"FFQ_2", {}},
+        LocString{"FFQ_3", {}},
+        LocString{"FFQ_4", {}},
+        LocString{"FFQ_5", {}},
+    }
+    FF_ANSWERS List<Map<int, StringOrLocString>> = List<Map<int, StringOrLocString>>{
+        Map<int, StringOrLocString>{
+            1: LocString{"FFQ_1_ANS_1", {}},
+            2: LocString{"FFQ_1_ANS_2", {}},
+            3: LocString{"FFQ_1_ANS_3", {}},
+            4: LocString{"FFQ_1_ANS_4", {}},
+            5: LocString{"FFQ_1_ANS_5", {}},
+        },
+        Map<int, StringOrLocString>{
+            1: LocString{"FFQ_2_ANS_1", {}},
+            2: LocString{"FFQ_2_ANS_2", {}},
+            3: LocString{"FFQ_2_ANS_3", {}},
+            4: LocString{"FFQ_2_ANS_4", {}},
+            5: LocString{"FFQ_2_ANS_5", {}},
+        },
+        Map<int, StringOrLocString>{
+            1: LocString{"FFQ_3_ANS_1", {}},
+            2: LocString{"FFQ_3_ANS_2", {}},
+            3: LocString{"FFQ_3_ANS_3", {}},
+            4: LocString{"FFQ_3_ANS_4", {}},
+            5: LocString{"FFQ_3_ANS_5", {}},
+        },
+        Map<int, StringOrLocString>{
+            1: LocString{"FFQ_4_ANS_1", {}},
+            2: LocString{"FFQ_4_ANS_2", {}},
+            3: LocString{"FFQ_4_ANS_3", {}},
+            4: LocString{"FFQ_4_ANS_4", {}},
+            5: LocString{"FFQ_4_ANS_5", {}},
+        },
+        Map<int, StringOrLocString>{
+            1: LocString{"FFQ_5_ANS_1", {}},
+            2: LocString{"FFQ_5_ANS_2", {}},
+            3: LocString{"FFQ_5_ANS_3", {}},
+            4: LocString{"FFQ_5_ANS_4", {}},
+            5: LocString{"FFQ_5_ANS_5", {}},
+        },
+    }
+
+    func GetAllQuestions() List<StringOrLocString> {
+        return FF_QUESTION
+    }
+
+    func GetFFQuestion(index int) StringOrLocString {
+        return FF_QUESTION[index]
+    }
+
+    func GetFFAnswers(index int) Map<int, StringOrLocString> {
+        return FF_ANSWERS[index]
+    }
+}

@@ -1,0 +1,66 @@
+import "Hud.fcc" as Hud
+import "List.fcc" as List
+import "Math.fcc" as Math
+import "StdLibrary.fcc" as StdLib
+import "EditorGenLib.fcc" as EditorLib
+
+import "../Configs/FreeFireQuestionConfigs.fcg" as FreeFireQuestionConfigs
+
+graph HudFFQuestion {
+    _Questions List<int>
+
+    _FFQuestionHUD entity<CustomUI>
+    _TitleLabel entity<UIWidgetLabel>
+    _QuestionLabel entity<UIWidgetLabel>
+    _AnswerButtonLabels List<entity<UIWidgetLabel>>
+
+    event OnAwake() {
+        _Questions = List<int>{}
+        _AnswerButtonLabels = List<entity<UIWidgetLabel>>{}
+    }
+
+    func InitFFQuestionHUD() {
+        if _FFQuestionHUD != nil {
+            return
+        }
+
+        CreateCustomUI(out var ffQuestionHud, thisEntity<Player>, EResUI.FreeFireQuestion)
+        _FFQuestionHUD = ffQuestionHud
+
+        var containerWidget entity<UIWidget> = GetChildByIndex(_FFQuestionHUD, 0) as entity<UIWidget>
+
+        var titleWidget entity<UIWidget> = GetChildByIndex(_FFQuestionHUD, 1) as entity<UIWidget>
+        _TitleLabel = GetChildByIndex(titleWidget, 1) as entity<UIWidgetLabel>
+
+        var detailsWidget entity<UIWidget> = GetChildByIndex(containerWidget, 2) as entity<UIWidget>
+        _QuestionLabel = GetChildByIndex(detailsWidget, 0) as entity<UIWidgetLabel>
+
+        var answersWidget entity<UIWidget> = GetChildByIndex(_QuestionLabel, 3) as entity<UIWidget>
+        for key, answerWidget in GetChildren(answersWidget) {
+            var answerLabel entity<UIWidgetLabel> = GetChildByIndex(answerWidget, 0) as entity<UIWidgetLabel>
+            List.Append(_AnswerButtonLabels, answerLabel)
+        }
+    }
+
+    func UpdateQuestionHUD() {
+        var allQuestions List<StringOrLocString> = FreeFireQuestionConfigs.GetAllQuestions()
+        var questionIndex int = RandomInt(0, List.Length(allQuestions))
+
+        while List.Contain(_Questions, questionIndex) {
+            questionIndex = RandomInt(0, List.Length(allQuestions))
+        }
+        List.Append(_Questions, questionIndex)
+
+        _TitleLabel<UIWidgetLabel>.Content = LocString{"HUD_QUESTION", {List.Length(_Questions)}}
+
+        _QuestionLabel<UIWidgetLabel>.Content = allQuestions[questionIndex]
+
+        var answersList Map<int, StringOrLocString> = FreeFireQuestionConfigs.GetFFAnswers(questionIndex)
+        // TODO: Shuffle answers
+
+        var widgetIndex int = 0
+        for score, answerContent in answersList {
+            
+        }
+    }
+}
