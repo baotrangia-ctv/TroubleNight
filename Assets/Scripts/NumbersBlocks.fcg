@@ -7,8 +7,8 @@ import "EditorGenLib.fcc" as EditorLib
 import "./Configs/MathQuestionConfigs.fcg" as MathQuestionConfigs
 
 graph NumbersBlocks {
-    SPAWN_QUESTION_DURATION = 10000
-    CALCULATE_DURATION = 5000
+    SPAWN_QUESTION_DURATION = 7500
+    CALCULATE_DURATION = 3500
 
     _IsSpawnQuestion bool
     _Result int
