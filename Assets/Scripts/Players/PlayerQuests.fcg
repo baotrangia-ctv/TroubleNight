@@ -74,6 +74,8 @@ graph PlayerQuests {
             thisEntity<HudFFQuestion>.ShowQuestionHUD()
         } else if roomQuest == RoomQuest.RoomQuest_2 {
             Teleport(thisEntity<Player>, spawnPosition, thisEntity<Player>.Forward)
+        } else if roomQuest == RoomQuest.RoomQuest_3 {
+            Teleport(thisEntity<Player>, spawnPosition, thisEntity<Player>.Forward)
         } else {}
 
         start HandlePlayerCompletedQuest(roomQuest)

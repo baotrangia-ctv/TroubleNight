@@ -1,0 +1,58 @@
+{
+  "fileId": "qusjp8u0qys-mel7hkg5-kv0ssou6yjh",
+  "globalscale": 1,
+  "properties": {
+    "Common": ""
+  },
+  "subDynamicResources": {},
+  "version": "1.5.2",
+  "manifest": {
+    "Meshes": [
+      {
+        "Name": "Gymnesium.~@FFFUB",
+        "MeshName": "Gymnesium",
+        "Type": "common",
+        "OrgExtName": ".~@FFFUB"
+      }
+    ],
+    "BoneInfos": [],
+    "Anims": [],
+    "ManifestJSON": {
+      "FBXName": "Gymnesium",
+      "ImportSucceeded": true,
+      "MaterialCount": 1,
+      "MaterialDetail": [
+        {
+          "Index": 0,
+          "MaterialName": ""
+        }
+      ],
+      "MeshCount": 1,
+      "MeshDetail": [
+        {
+          "MeshName": "Gymnesium",
+          "MaterialIndex": [
+            0
+          ],
+          "Transform": {
+            "Position": [
+              -9.7725,
+              6.72374,
+              -14.8467
+            ],
+            "Rotation": [
+              180,
+              0,
+              0
+            ],
+            "Scale": [
+              100,
+              100,
+              100
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

@@ -108,6 +108,28 @@
       "apiTargetV2": "both",
       "version": 45,
       "key": "signal_29671678"
+    },
+    "signal_74408007": {
+      "name": "OnPlayerGotObjective",
+      "eventType": 0,
+      "enitityType": "Entity",
+      "typeID": 100005,
+      "props": [
+        {
+          "name": "player",
+          "value": "Player",
+          "key": 1
+        },
+        {
+          "name": "objective",
+          "value": "String",
+          "key": 2
+        }
+      ],
+      "propCount": 2,
+      "apiTargetV2": "both",
+      "version": 45,
+      "key": "signal_74408007"
     }
   },
   "customName": {
@@ -115,8 +137,9 @@
     "OnPlayerCompletedQuest": "signal_70542801",
     "OnPlayerFinished": "signal_75472281",
     "OnCustomButtonTapped": "signal_89384059",
-    "OnPlayerStartQuest": "signal_29671678"
+    "OnPlayerStartQuest": "signal_29671678",
+    "OnPlayerGotObjective": "signal_74408007"
   },
   "children": []
 }
-//"{FE:{"v":"1.14.3847898","c":{"FF":5001},"s":100}
+//"{FE:{"v":"1.14.3861343","c":{"FF":5001},"s":100}

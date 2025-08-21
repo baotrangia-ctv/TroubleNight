@@ -532,7 +532,7 @@
                   "value": "You’ve completed this room’s mission. You will be teleported back to the classroom in {0} seconds.",
                   "key": "",
                   "font": "Default",
-                  "fontSize": 26,
+                  "fontSize": 32,
                   "fontStyle": {
                     "bold": false,
                     "italic": false,
