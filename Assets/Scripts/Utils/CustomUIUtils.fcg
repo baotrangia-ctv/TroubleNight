@@ -5,9 +5,11 @@ import "StdLibrary.fcc" as StdLib
 import "EditorGenLib.fcc" as EditorLib
 
 import "../HUDs/HudRoomQuest.fcg" as HudRoomQuest
+import "../HUDs/HudFFQuestion.fcg" as HudFFQuestion
 
 graph CustomUIUtils {
     event OnCustomButtonTapped(button entity<UIWidgetButton>, player entity<Player>) {
+        // ----------- Classroom Popup -----------
         if button == GetWidgetFromCustomUI(player, button<UIWidget>.ParentUI, EResUIRoomQuest.StartButton) {
             LogInfo("[OnCustomButtonTapped] " + player + "pressed StartButton")
 
@@ -20,6 +22,30 @@ graph CustomUIUtils {
             LogInfo("[OnCustomButtonTapped] " + player + "pressed OpenQuestButton")
 
             player<HudRoomQuest>.ShowQuestContainer()
+        } else {}
+
+
+        // ----------- Minigame 1 - Free Fire Questions -----------
+        if button == GetWidgetFromCustomUI(player, button<UIWidget>.ParentUI, EResUIFreeFireQuestion.Answer1Button) {
+            LogInfo("[OnCustomButtonTapped] " + player + "pressed Answer1Button")
+
+            player<HudFFQuestion>.HandlePlayerAnswer(0)
+        } else if button == GetWidgetFromCustomUI(player, button<UIWidget>.ParentUI, EResUIFreeFireQuestion.Answer2Button) {
+            LogInfo("[OnCustomButtonTapped] " + player + "pressed Answer2Button")
+
+            player<HudFFQuestion>.HandlePlayerAnswer(1)
+        } else if button == GetWidgetFromCustomUI(player, button<UIWidget>.ParentUI, EResUIFreeFireQuestion.Answer3Button) {
+            LogInfo("[OnCustomButtonTapped] " + player + "pressed Answer3Button")
+
+            player<HudFFQuestion>.HandlePlayerAnswer(2)
+        } else if button == GetWidgetFromCustomUI(player, button<UIWidget>.ParentUI, EResUIFreeFireQuestion.Answer4Button) {
+            LogInfo("[OnCustomButtonTapped] " + player + "pressed Answer4Button")
+
+            player<HudFFQuestion>.HandlePlayerAnswer(3)
+        } else if button == GetWidgetFromCustomUI(player, button<UIWidget>.ParentUI, EResUIFreeFireQuestion.Answer5Button) {
+            LogInfo("[OnCustomButtonTapped] " + player + "pressed Answer5Button")
+
+            player<HudFFQuestion>.HandlePlayerAnswer(4)
         } else {}
     }
 

@@ -29484,7 +29484,10 @@
             "selfValue": true,
             "valueTag": "activeValue"
           },
-          "unlockedValue": null,
+          "unlockedValue": {
+            "selfValue": true,
+            "valueTag": "unlockedValue"
+          },
           "editorLockValue": false,
           "editorVisibleValue": true,
           "position": {
@@ -29613,7 +29616,10 @@
             "selfValue": true,
             "valueTag": "activeValue"
           },
-          "unlockedValue": null,
+          "unlockedValue": {
+            "selfValue": true,
+            "valueTag": "unlockedValue"
+          },
           "position": {
             "x": -32.5,
             "y": 2,
@@ -29736,7 +29742,10 @@
         "selfValue": true,
         "valueTag": "activeValue"
       },
-      "unlockedValue": null,
+      "unlockedValue": {
+        "selfValue": true,
+        "valueTag": "unlockedValue"
+      },
       "editorLockValue": false,
       "editorVisibleValue": true,
       "position": {
@@ -29806,7 +29815,8 @@
         "LevelObject": {},
         "Transform": {},
         "Entity": {},
-        "Visibility": {}
+        "Visibility": {},
+        "MeshRender": {}
       },
       "propsData": {},
       "entityVersion": 3,
@@ -39261,7 +39271,10 @@
             "selfValue": true,
             "valueTag": "activeValue"
           },
-          "unlockedValue": null,
+          "unlockedValue": {
+            "selfValue": true,
+            "valueTag": "unlockedValue"
+          },
           "editorLockValue": false,
           "editorVisibleValue": true,
           "position": {
@@ -39373,7 +39386,8 @@
             "Entity": {},
             "Visibility": {},
             "ColliderShape": {},
-            "Collider": {}
+            "Collider": {},
+            "MeshRender": {}
           },
           "propsData": {},
           "entityVersion": 3,
@@ -46366,4 +46380,4 @@
     }
   }
 }
-//"{FE:{"v":"1.14.3847898","c":{"FF":5001},"s":100}
+//"{FE:{"v":"1.14.3861343","c":{"FF":5001},"s":100}

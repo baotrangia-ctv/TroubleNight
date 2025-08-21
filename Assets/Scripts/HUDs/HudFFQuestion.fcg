@@ -7,16 +7,23 @@ import "EditorGenLib.fcc" as EditorLib
 import "../Configs/FreeFireQuestionConfigs.fcg" as FreeFireQuestionConfigs
 
 graph HudFFQuestion {
+    QUESTION_DURATION = 5000
+    MAX_QUESTIONS = 5
+
+    _TotalScore int
     _Questions List<int>
+    _AnswerScores List<int>
 
     _FFQuestionHUD entity<CustomUI>
     _TitleLabel entity<UIWidgetLabel>
     _QuestionLabel entity<UIWidgetLabel>
-    _AnswerButtonLabels List<entity<UIWidgetLabel>>
+    _AnswerButtons List<entity<UIWidgetButton>>
 
     event OnAwake() {
+        _TotalScore = 0
         _Questions = List<int>{}
-        _AnswerButtonLabels = List<entity<UIWidgetLabel>>{}
+        _AnswerScores = List<int>{1, 2, 3, 4, 5}
+        _AnswerButtons = List<entity<UIWidgetButton>>{}
     }
 
     func InitFFQuestionHUD() {
@@ -27,22 +34,37 @@ graph HudFFQuestion {
         CreateCustomUI(out var ffQuestionHud, thisEntity<Player>, EResUI.FreeFireQuestion)
         _FFQuestionHUD = ffQuestionHud
 
-        var containerWidget entity<UIWidget> = GetChildByIndex(_FFQuestionHUD, 0) as entity<UIWidget>
+        var containerWidget entity<UIWidget> = GetChildByIndex(_FFQuestionHUD, 1) as entity<UIWidget>
 
-        var titleWidget entity<UIWidget> = GetChildByIndex(_FFQuestionHUD, 1) as entity<UIWidget>
+        var titleWidget entity<UIWidget> = GetChildByIndex(containerWidget, 1) as entity<UIWidget>
         _TitleLabel = GetChildByIndex(titleWidget, 1) as entity<UIWidgetLabel>
 
         var detailsWidget entity<UIWidget> = GetChildByIndex(containerWidget, 2) as entity<UIWidget>
         _QuestionLabel = GetChildByIndex(detailsWidget, 0) as entity<UIWidgetLabel>
 
-        var answersWidget entity<UIWidget> = GetChildByIndex(_QuestionLabel, 3) as entity<UIWidget>
-        for key, answerWidget in GetChildren(answersWidget) {
-            var answerLabel entity<UIWidgetLabel> = GetChildByIndex(answerWidget, 0) as entity<UIWidgetLabel>
-            List.Append(_AnswerButtonLabels, answerLabel)
-        }
+        var answersWidget entity<UIWidget> = GetChildByIndex(containerWidget, 3) as entity<UIWidget>
+        _AnswerButtons = GetChildren(answersWidget) as List<entity<UIWidgetButton>>
+
+        HideQuestionHUD()
+    }
+
+    func ShowQuestionHUD() {
+        LogInfo("[HudFFQuestion] ShowQuestionHUD()")
+
+        InitFFQuestionHUD()
+        UpdateQuestionHUD()
+
+        _FFQuestionHUD<CustomUI>.IsVisible = true
+    }
+
+    func HideQuestionHUD() {
+        _FFQuestionHUD<CustomUI>.IsVisible = false
     }
 
     func UpdateQuestionHUD() {
+        CheckAnserAllQuestions()
+        ResetButtons()
+
         var allQuestions List<StringOrLocString> = FreeFireQuestionConfigs.GetAllQuestions()
         var questionIndex int = RandomInt(0, List.Length(allQuestions))
 
@@ -56,11 +78,61 @@ graph HudFFQuestion {
         _QuestionLabel<UIWidgetLabel>.Content = allQuestions[questionIndex]
 
         var answersList Map<int, StringOrLocString> = FreeFireQuestionConfigs.GetFFAnswers(questionIndex)
-        // TODO: Shuffle answers
+        List.Shuffle(_AnswerScores)
 
         var widgetIndex int = 0
-        for score, answerContent in answersList {
-            
+        for key, score in _AnswerScores {
+            var answerButton entity<UIWidgetButton> = _AnswerButtons[widgetIndex]
+            var answerLabel entity<UIWidgetLabel> = GetChildByIndex(answerButton, 0) as entity<UIWidgetLabel>
+            answerLabel<UIWidgetLabel>.Content = answersList[score]
+
+            widgetIndex += 1
         }
+    }
+
+    func CheckAnserAllQuestions() {
+        if List.Length(_Questions) == MAX_QUESTIONS {
+            HideQuestionHUD()
+            DispatchEventWithPlatform(OnPlayerCompletedQuest, thisEntity, PlatformType.Both, List<object>{thisEntity, RoomQuest.RoomQuest_1})
+
+            _TotalScore = 0
+            _Questions = List<int>{}
+        }
+    }
+
+    func ResetButtons() {
+        for key, answerButton in _AnswerButtons {
+            answerButton<UIWidgetButton>.Color = #FFFFFF
+
+            var answerScoreLabel entity<UIWidgetLabel> = GetChildByIndex(answerButton, 1) as entity<UIWidgetLabel>
+            answerScoreLabel<UIWidget>.Active = false
+        }
+    }
+
+    async func HandlePlayerAnswer(answerIndex int) {
+        ShowAnswerScore(answerIndex)
+
+        WaitForMillisecond(QUESTION_DURATION)
+
+        UpdateQuestionHUD()
+    }
+
+    func ShowAnswerScore(answerIndex int) {
+        var answerButton entity<UIWidgetButton> = _AnswerButtons[answerIndex]
+        answerButton<UIWidgetButton>.Color = #30F410
+
+        for key, answerButton in _AnswerButtons {
+            var answerScoreLabel entity<UIWidgetLabel> = GetChildByIndex(answerButton, 1) as entity<UIWidgetLabel>
+            answerScoreLabel<UIWidgetLabel>.Content = "+" + _AnswerScores[key]
+            answerScoreLabel<UIWidget>.Active = true
+
+            if key == answerIndex {
+                _TotalScore += _AnswerScores[key]
+            }
+        }
+    }
+
+    func GetScore() int {
+        return _TotalScore
     }
 }

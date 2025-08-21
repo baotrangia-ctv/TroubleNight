@@ -97,6 +97,14 @@
         "type": "GFileRefer"
       },
       "fileType": "ugcscript"
+    },
+    {
+      "fileId": "s5ql3ugd9d-mejv96gx-jo7w8jo7f4",
+      "filePath": "Assets\\Scripts\\HUDs\\HudFFQuestion.fcg",
+      "_tag": {
+        "type": "GFileRefer"
+      },
+      "fileType": "ugcscript"
     }
   ],
   "avatarInfo": null,
@@ -330,4 +338,4 @@
   "modOpen": true,
   "showSwitch": false
 }
-//"{FE:{"v":"1.14.3847898","c":{"FF":5001},"s":100}
+//"{FE:{"v":"1.14.3861343","c":{"FF":5001},"s":100}

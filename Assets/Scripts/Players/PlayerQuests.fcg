@@ -1,10 +1,11 @@
 import "Hud.fcc" as Hud
 import "List.fcc" as List
+import "Player.fcc" as Player
 import "StdLibrary.fcc" as StdLib
 import "EditorGenLib.fcc" as EditorLib
 
 import "../Configs/RoomConfigs.fcg" as RoomConfigs
-import "Player.fcc" as Player
+import "../HUDs/HudFFQuestion.fcg" as HudFFQuestion
 
 graph PlayerQuests {
     MAX_QUESTS = 4
@@ -19,7 +20,14 @@ graph PlayerQuests {
         if player == thisEntity && !List.Contain(_CompletedQuests, roomQuest) {
             LogInfo("[PlayerQuests] OnPlayerCompletedQuest(" + player<Player>.NickName + ", " + roomQuest + ")")
 
-            List.Append(_CompletedQuests, roomQuest)
+            if roomQuest == RoomQuest.RoomQuest_1 {
+                var score int = thisEntity<HudFFQuestion>.GetScore()
+                if score >= 20 {
+                    List.Append(_CompletedQuests, roomQuest)
+                }
+            } else {
+                List.Append(_CompletedQuests, roomQuest)
+            }
 
             CheckPlayerFinish()
         }
@@ -62,15 +70,17 @@ graph PlayerQuests {
         }
 
         var spawnPosition Vector3 = RoomConfigs.GetRoomSpawnPosition(roomQuest)
-        if roomQuest == RoomQuest.RoomQuest_2 {
+        if roomQuest == RoomQuest.RoomQuest_1 {
+            thisEntity<HudFFQuestion>.ShowQuestionHUD()
+        } else if roomQuest == RoomQuest.RoomQuest_2 {
             Teleport(thisEntity<Player>, spawnPosition, thisEntity<Player>.Forward)
-        }
+        } else {}
 
         start HandlePlayerCompletedQuest(roomQuest)
     }
 
     async func HandlePlayerCompletedQuest(roomQuest RoomQuest) {
-        if roomQuest == RoomQuest.RoomQuest_2 {
+        if roomQuest == RoomQuest.RoomQuest_1 || roomQuest == RoomQuest.RoomQuest_2 || roomQuest == RoomQuest.RoomQuest_3 {
             return
         }
 

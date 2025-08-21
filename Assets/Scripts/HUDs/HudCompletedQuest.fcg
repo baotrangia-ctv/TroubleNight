@@ -2,13 +2,17 @@ import "Hud.fcc" as Hud
 import "StdLibrary.fcc" as StdLib
 import "EditorGenLib.fcc" as EditorLib
 
+import "./HudFFQuestion.fcg" as HudFFQuestion
+
 graph HudCompletedQuest {
+    ROOM_1_NEED_SCORE = 20
+
     _CompletedQuestHUD entity<CustomUI>
     _ContentLabel entity<UIWidgetLabel>
 
     event OnPlayerCompletedQuest(player entity<Player>, roomQuest int) {
         if player == thisEntity {
-            ShowCompletedQuestHUD()
+            ShowCompletedQuestHUD(roomQuest as RoomQuest)
         }
     }
 
@@ -25,14 +29,27 @@ graph HudCompletedQuest {
         _ContentLabel = GetChildByIndex(details, 0) as entity<UIWidgetLabel>
     }
 
-    async func ShowCompletedQuestHUD() {
+    async func ShowCompletedQuestHUD(roomQuest RoomQuest) {
+        LogInfo("[HudCompletedQuest] ShowCompletedQuestHUD(" + roomQuest + ")")
+
         InitCompletedQuestHUD()
 
         _CompletedQuestHUD<CustomUI>.IsVisible = true
 
-        for i = 5, -1, -1 {
-            _ContentLabel<UIWidgetLabel>.Content = LocString{"HUD_TELEPORT", {i}}
-            WaitForMillisecond(1000)
+        if roomQuest == RoomQuest.RoomQuest_1 {
+            var score int = thisEntity<HudFFQuestion>.GetScore()
+            if score >= ROOM_1_NEED_SCORE {
+                _ContentLabel<UIWidgetLabel>.Content = LocString{"HUD_COMPLETED", {score}}
+            } else {
+                _ContentLabel<UIWidgetLabel>.Content = LocString{"HUD_NOT_COMPLETED", {score}}
+            }
+
+            WaitForMillisecond(3000)
+        } else {
+            for i = 5, -1, -1 {
+                _ContentLabel<UIWidgetLabel>.Content = LocString{"HUD_TELEPORT", {i}}
+                WaitForMillisecond(1000)
+            }
         }
 
         HideCompletedQuestHUD()
