@@ -17,4 +17,8 @@ graph ClassroomTrigger {
 
         DispatchEventWithPlatform(OnPlayerEnterRoom, target, PlatformType.Both, List<object>{target, ROOM_TAGS[roomTag]})
     }
+
+    event OnTriggerLeave(target entity<Entity>) {
+        DispatchEventWithPlatform(OnPlayerLeaveRoom, target, PlatformType.Both, List<object>{target})
+    }
 }

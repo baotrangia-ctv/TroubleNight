@@ -152,6 +152,23 @@
       "apiTargetV2": "both",
       "version": 45,
       "key": "signal_64061555"
+    },
+    "signal_16387453": {
+      "name": "OnPlayerLeaveRoom",
+      "eventType": 0,
+      "enitityType": "Entity",
+      "typeID": 100007,
+      "props": [
+        {
+          "name": "player",
+          "value": "Player",
+          "key": 1
+        }
+      ],
+      "propCount": 2,
+      "apiTargetV2": "both",
+      "version": 45,
+      "key": "signal_16387453"
     }
   },
   "customName": {
@@ -161,7 +178,8 @@
     "OnCustomButtonTapped": "signal_89384059",
     "OnPlayerStartQuest": "signal_29671678",
     "OnPlayerGotObjective": "signal_74408007",
-    "OnPlayerSkipQuest": "signal_64061555"
+    "OnPlayerSkipQuest": "signal_64061555",
+    "OnPlayerLeaveRoom": "signal_16387453"
   },
   "children": []
 }

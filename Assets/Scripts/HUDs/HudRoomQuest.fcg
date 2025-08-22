@@ -26,6 +26,12 @@ graph HudRoomQuest {
         }
     }
 
+    event OnPlayerLeaveRoom(player entity<Player>) {
+        if player == thisEntity {
+            HideRoomQuestHUD()
+        }
+    }
+
     event OnPlayerStartQuest(player entity<Player>, roomQuest int) {
         if player == thisEntity && roomQuest != RoomQuest.RoomQuest_1 {
             LogInfo("[HudRoomQuest] OnPlayerStartQuest(" + roomQuest + ")")
