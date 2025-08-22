@@ -88,6 +88,18 @@
               "scriptName": "Answer5Button"
             }
           ]
+        },
+        {
+          "refer": {
+            "fileId": "jrz1ukioutn-mel3266l-oaedqxudi38",
+            "filePath": "Assets\\HUDs\\ParkourObjectives.ui",
+            "_tag": {
+              "type": "GFileRefer"
+            },
+            "fileType": "ui"
+          },
+          "scriptName": "ParkourObjectives",
+          "children": []
         }
       ]
     },
@@ -166,4 +178,4 @@
   },
   "children": []
 }
-//"{FE:{"v":"1.14.3847898","c":{"FF":5001},"s":100}
+//"{FE:{"v":"1.14.3861343","c":{"FF":5001},"s":100}

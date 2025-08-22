@@ -18,18 +18,7 @@ graph PlayerQuests {
 
     event OnPlayerCompletedQuest(player entity<Player>, roomQuest int) {
         if player == thisEntity && !List.Contain(_CompletedQuests, roomQuest) {
-            LogInfo("[PlayerQuests] OnPlayerCompletedQuest(" + player<Player>.NickName + ", " + roomQuest + ")")
-
-            if roomQuest == RoomQuest.RoomQuest_1 {
-                var score int = thisEntity<HudFFQuestion>.GetScore()
-                if score >= 20 {
-                    List.Append(_CompletedQuests, roomQuest)
-                }
-            } else {
-                List.Append(_CompletedQuests, roomQuest)
-            }
-
-            CheckPlayerFinish()
+            HandlePlayerCompletedQuest(roomQuest as RoomQuest)
         }
     }
 
@@ -42,6 +31,26 @@ graph PlayerQuests {
 
         CreateBuiltInUI(out var resultBanner, thisEntity<Player>, BuiltInUIType.ResultBannerHud)
         resultBanner<UIWinOrLoseBanner>.Result = result
+    }
+
+    async func HandlePlayerCompletedQuest(roomQuest RoomQuest) {
+        LogInfo("[PlayerQuests] OnPlayerCompletedQuest(" + thisEntity<Player>.NickName + ", " + roomQuest + ")")
+
+        if roomQuest == RoomQuest.RoomQuest_1 {
+            var score int = thisEntity<HudFFQuestion>.GetScore()
+            if score >= 20 {
+                List.Append(_CompletedQuests, roomQuest)
+            }
+        } else {
+            WaitForMillisecond(6000)
+
+            var roomPosition Vector3 = RoomConfigs.GetRoomPosition(roomQuest)
+            Teleport(thisEntity<Player>, roomPosition, thisEntity<Player>.Forward)
+
+            List.Append(_CompletedQuests, roomQuest)
+        }
+
+        CheckPlayerFinish()
     }
 
     func CheckPlayerFinish() {
@@ -78,10 +87,11 @@ graph PlayerQuests {
             Teleport(thisEntity<Player>, spawnPosition, thisEntity<Player>.Forward)
         } else {}
 
-        start HandlePlayerCompletedQuest(roomQuest)
+        DispatchEventWithPlatform(OnPlayerStartQuest, thisEntity, PlatformType.Both, List<object>{thisEntity, roomQuest})
+        start HandlePlayerCompletedQuestFake(roomQuest)
     }
 
-    async func HandlePlayerCompletedQuest(roomQuest RoomQuest) {
+    async func HandlePlayerCompletedQuestFake(roomQuest RoomQuest) {
         if roomQuest == RoomQuest.RoomQuest_1 || roomQuest == RoomQuest.RoomQuest_2 || roomQuest == RoomQuest.RoomQuest_3 {
             return
         }

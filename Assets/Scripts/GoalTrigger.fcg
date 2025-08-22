@@ -25,10 +25,5 @@ graph GoalTrigger {
         List.Append(_CompletedPlayers, player)
 
         DispatchEventWithPlatform(OnPlayerCompletedQuest, player, PlatformType.Both, List<object>{player, RoomQuest.RoomQuest_2})
-
-        WaitForMillisecond(6000)
-
-        var roomPosition Vector3 = RoomConfigs.GetRoomPosition(RoomQuest.RoomQuest_2)
-        Teleport(player, roomPosition, player<Player>.Forward)
     }
 }

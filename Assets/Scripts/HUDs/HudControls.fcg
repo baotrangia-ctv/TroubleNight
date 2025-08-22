@@ -1,0 +1,37 @@
+import "Player.fcc" as Player
+import "StdLibrary.fcc" as StdLib
+import "EditorGenLib.fcc" as EditorLib
+
+graph HudControls {
+    PLAYER_UI_SWITCH_TYPE_COUNT = 32
+    DEFAULT_UI_ON = List<PlayerUISwitchType>{
+        PlayerUISwitchType.MovingJoystick,
+        PlayerUISwitchType.Sprint,
+        PlayerUISwitchType.Attack,
+        PlayerUISwitchType.Jump,
+        PlayerUISwitchType.MedicalProps,
+        PlayerUISwitchType.Crouch,
+        PlayerUISwitchType.Prone,
+        PlayerUISwitchType.TeammatesInfo,
+        PlayerUISwitchType.QuickChat,
+        PlayerUISwitchType.HP,
+        PlayerUISwitchType.EP,
+        PlayerUISwitchType.Speaker,
+        PlayerUISwitchType.MicroPhone,
+        PlayerUISwitchType.Mark,
+    }
+
+    event OnAwake() {
+        TurnOffDefaultUI()
+    }
+
+    func TurnOffDefaultUI() {
+        for i = 1, PLAYER_UI_SWITCH_TYPE_COUNT, 1 {
+            SetDefaultUIStatus(thisEntity<Player>, i as PlayerUISwitchType, CommonUISwitchValue.Close)
+        }
+
+        for key, defaultUI in DEFAULT_UI_ON {
+            SetDefaultUIStatus(thisEntity<Player>, defaultUI, CommonUISwitchValue.Show)
+        }
+    }
+}

@@ -1,0 +1,113 @@
+import "Hud.fcc" as Hud
+import "List.fcc" as List
+import "StdLibrary.fcc" as StdLib
+import "EditorGenLib.fcc" as EditorLib
+
+graph HudParkourObjectives {
+    MAX_OBJECTIVES = 4
+    OBJECTIVE_INDEXES Map<ETag, int> = Map<ETag, int>{
+        ETag.ParkourObj1: 0,
+        ETag.ParkourObj2: 1,
+        ETag.ParkourObj3: 2,
+        ETag.ParkourObj4: 3,
+    }
+    SHOW_GOT_OBJECTIVE_DURATION = 3000
+
+    _GotObjectives List<int>
+
+    _ParkourObjectivesHUD entity<CustomUI>
+    _ObjectiveWidgets List<entity<UIWidget>>
+    _GotObjectiveWidget entity<UIWidget>
+    _GotObjectiveLabel entity<UIWidgetLabel>
+
+    event OnAwake() {
+        _GotObjectives = List<int>{}
+    }
+
+    event OnPlayerStartQuest(player entity<Player>, roomQuest int) {
+        if player == thisEntity && roomQuest == RoomQuest.RoomQuest_3 {
+            ShowParkourObjectivesHUD()
+        }
+    }
+
+    event OnPlayerGotObjective(player entity<Player>, objective string) {
+        if player == thisEntity {
+            var objectiveIndex int = OBJECTIVE_INDEXES[objective as ETag]
+            HandlePlayerGotObjective(objectiveIndex)
+        }
+    }
+
+    func InitParkourObjectivesHUD() {
+        if _ParkourObjectivesHUD != nil {
+            return
+        }
+
+        CreateCustomUI(out var parkourObjectivesHud, thisEntity<Player>, EResUI.ParkourObjectives)
+        _ParkourObjectivesHUD = parkourObjectivesHud
+
+        var containerWidget entity<UIWidget> = GetChildByIndex(_ParkourObjectivesHUD, 0) as entity<UIWidget>
+        var objectivesLayout entity<UIWidgetLayout> = GetChildByIndex(containerWidget, 2) as entity<UIWidgetLayout>
+        _ObjectiveWidgets = GetChildren(objectivesLayout) as List<entity<UIWidget>>
+
+        _GotObjectiveWidget = GetChildByIndex(_ParkourObjectivesHUD, 1) as entity<UIWidget>
+        var detailsWidget entity<UIWidget> = GetChildByIndex(_GotObjectiveWidget, 2) as entity<UIWidget>
+        _GotObjectiveLabel = GetChildByIndex(detailsWidget, 0) as entity<UIWidgetLabel>
+
+        HideParkourObjectivesHUD()
+    }
+
+    func ShowParkourObjectivesHUD() {
+        LogInfo("[HudParkourObjectives] ShowParkourObjectivesHUD()")
+
+        InitParkourObjectivesHUD()
+        _ParkourObjectivesHUD<CustomUI>.IsVisible = true
+        FadeAllObjectives()
+    }
+
+    func HideParkourObjectivesHUD() {
+        _ParkourObjectivesHUD<CustomUI>.IsVisible = false
+    }
+
+    func FadeAllObjectives() {
+        for key, objectiveWidget in _ObjectiveWidgets {
+            objectiveWidget<UIWidgetEmpty>.Alpha = 0.25
+        }
+    }
+
+    func HandlePlayerGotObjective(objectiveIndex int) {
+        LogInfo("[HudParkourObjectives] HandlePlayerGotObjective(" + objectiveIndex + ")")
+
+        var objectiveWidget entity<UIWidget> = _ObjectiveWidgets[objectiveIndex]
+        objectiveWidget<UIWidgetEmpty>.Alpha = 1
+
+        start ShowGotObjective(objectiveIndex)
+    }
+
+    async func ShowGotObjective(objectiveIndex int) {
+        if !List.Contain(_GotObjectives, objectiveIndex) {
+            _GotObjectiveLabel<UIWidgetLabel>.Content = LocString{"HUD_PK_OBJECTIVE_CONGRATS", {objectiveIndex + 1}}
+            List.Append(_GotObjectives, objectiveIndex)
+        } else {
+            _GotObjectiveLabel<UIWidgetLabel>.Content = LocString{"HUD_PK_OBJECTIVE_DUPLICATE", {}}
+        }
+
+        _GotObjectiveWidget<UIWidget>.Active = true
+
+        WaitForMillisecond(SHOW_GOT_OBJECTIVE_DURATION)
+        HideGotObjective()
+    }
+
+    func HideGotObjective() {
+        _GotObjectiveWidget<UIWidget>.Active = false
+        CheckCompletedMission()
+    }
+
+    func CheckCompletedMission() {
+        if List.Length(_GotObjectives) != MAX_OBJECTIVES {
+            return
+        }
+
+        HideParkourObjectivesHUD()
+        DispatchEventWithPlatform(OnPlayerCompletedQuest, thisEntity, PlatformType.Both, List<object>{thisEntity, RoomQuest.RoomQuest_3})
+    }
+}

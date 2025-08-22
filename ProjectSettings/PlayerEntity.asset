@@ -83,6 +83,14 @@
       "fileType": "ugcscript"
     },
     {
+      "fileId": "3o4lrzunmo9-membzef2-qp2ibautw5",
+      "filePath": "Assets\\Scripts\\HUDs\\HudControls.fcg",
+      "_tag": {
+        "type": "GFileRefer"
+      },
+      "fileType": "ugcscript"
+    },
+    {
       "fileId": "tqbd0l1kms-meif12nj-17cqgodcr9m",
       "filePath": "Assets\\Scripts\\HUDs\\HudRoomQuest.fcg",
       "_tag": {
@@ -101,6 +109,14 @@
     {
       "fileId": "s5ql3ugd9d-mejv96gx-jo7w8jo7f4",
       "filePath": "Assets\\Scripts\\HUDs\\HudFFQuestion.fcg",
+      "_tag": {
+        "type": "GFileRefer"
+      },
+      "fileType": "ugcscript"
+    },
+    {
+      "fileId": "wcslgm6hop-mem9xogr-h33v5eno3jo",
+      "filePath": "Assets\\Scripts\\HUDs\\HudParkourObjectives.fcg",
       "_tag": {
         "type": "GFileRefer"
       },

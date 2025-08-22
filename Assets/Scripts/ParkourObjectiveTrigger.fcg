@@ -4,6 +4,9 @@ import "EditorGenLib.fcc" as EditorLib
 
 graph ParkourObjectiveTrigger {
     event OnTriggerEnter(target entity<Entity>) {
-        DispatchEventWithPlatform(OnPlayerGotObjective, target, PlatformType.Both, List<object>{target, thisEntity<Entity>.Tags[0]})
+        var parentObject entity<Entity> = GetParent(thisEntity)
+        var objectiveTag string = parentObject<Entity>.Tags[0]
+
+        DispatchEventWithPlatform(OnPlayerGotObjective, target, PlatformType.Both, List<object>{target, objectiveTag})
     }
 }
