@@ -26,6 +26,12 @@ graph HudFFQuestion {
         _AnswerButtons = List<entity<UIWidgetButton>>{}
     }
 
+    event OnPlayerSkipQuest(player entity<Player>, roomQuest int) {
+        if player == thisEntity && roomQuest == RoomQuest.RoomQuest_1 {
+            ResetMission()
+        }
+    }
+
     func InitFFQuestionHUD() {
         if _FFQuestionHUD != nil {
             return
@@ -62,7 +68,7 @@ graph HudFFQuestion {
     }
 
     func UpdateQuestionHUD() {
-        CheckAnserAllQuestions()
+        CheckAnswerAllQuestions()
         ResetButtons()
 
         var allQuestions List<StringOrLocString> = FreeFireQuestionConfigs.GetAllQuestions()
@@ -90,14 +96,18 @@ graph HudFFQuestion {
         }
     }
 
-    func CheckAnserAllQuestions() {
+    func CheckAnswerAllQuestions() {
         if List.Length(_Questions) == MAX_QUESTIONS {
-            HideQuestionHUD()
             DispatchEventWithPlatform(OnPlayerCompletedQuest, thisEntity, PlatformType.Both, List<object>{thisEntity, RoomQuest.RoomQuest_1})
-
-            _TotalScore = 0
-            _Questions = List<int>{}
+            ResetMission()
         }
+    }
+
+    func ResetMission() {
+        HideQuestionHUD()
+
+        _TotalScore = 0
+        _Questions = List<int>{}
     }
 
     func ResetButtons() {

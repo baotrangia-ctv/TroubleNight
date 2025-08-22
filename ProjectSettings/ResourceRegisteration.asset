@@ -100,6 +100,31 @@
           },
           "scriptName": "ParkourObjectives",
           "children": []
+        },
+        {
+          "refer": {
+            "fileId": "ax0ixiivzr7-memcpe0x-zox2nogm5q",
+            "filePath": "Assets\\HUDs\\SkipMission.ui",
+            "_tag": {
+              "type": "GFileRefer"
+            },
+            "fileType": "ui"
+          },
+          "scriptName": "SkipMission",
+          "children": [
+            {
+              "id": "K8S2XcKc",
+              "scriptName": "SkipButton"
+            },
+            {
+              "id": "LAEspNuR",
+              "scriptName": "CancelButton"
+            },
+            {
+              "id": "qEfK7Glw",
+              "scriptName": "ConfirmButton"
+            }
+          ]
         }
       ]
     },

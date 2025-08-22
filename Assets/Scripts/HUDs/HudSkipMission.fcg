@@ -1,0 +1,80 @@
+import "Hud.fcc" as Hud
+import "Player.fcc" as Player
+import "StdLibrary.fcc" as StdLib
+import "EditorGenLib.fcc" as EditorLib
+
+import "../Configs/RoomConfigs.fcg" as RoomConfigs
+
+graph HudSkipMission {
+    _CurrentRoomMission RoomQuest
+
+    _SkipMissionHUD entity<CustomUI>
+    _SkipButton entity<UIWidgetButton>
+    _ConfirmPopup entity<UIWidget>
+
+    event OnAwake() {
+
+    }
+
+    event OnPlayerStartQuest(player entity<Player>, roomQuest int) {
+        if player == thisEntity {
+            LogInfo("[HudSkipMission] OnPlayerStartQuest(" + roomQuest + ")")
+
+            _CurrentRoomMission = roomQuest as RoomQuest
+            ShowSkipMissionHUD()
+        }
+    }
+
+    func InitSkipMissionHUD() {
+        if _SkipMissionHUD != nil {
+            return
+        }
+
+        CreateCustomUI(out var skipMissionHud, thisEntity<Player>, EResUI.SkipMission)
+        _SkipMissionHUD = skipMissionHud
+
+        _SkipButton = GetChildByIndex(_SkipMissionHUD, 0) as entity<UIWidgetButton>
+        _ConfirmPopup = GetChildByIndex(_SkipMissionHUD, 1) as entity<UIWidget>
+    }
+
+    func ShowSkipMissionHUD() {
+        LogInfo("[HudSkipMission] ShowSkipMissionHUD()")
+
+        InitSkipMissionHUD()
+        HidePopup()
+        _SkipMissionHUD<CustomUI>.IsVisible = true
+    }
+
+    func HideSkipMissionHUD() {
+        LogInfo("[HudSkipMission] HideSkipMissionHUD()")
+
+        _SkipMissionHUD<CustomUI>.IsVisible = false
+    }
+
+    func ShowPopup() {
+        LogInfo("[HudSkipMission] ShowPopup()")
+
+        _SkipButton<UIWidget>.Active = false
+        _ConfirmPopup<UIWidget>.Active = true
+    }
+
+    func HidePopup() {
+        LogInfo("[HudSkipMission] HidePopup()")
+
+        _SkipButton<UIWidget>.Active = true
+        _ConfirmPopup<UIWidget>.Active = false
+    }
+
+    func HandlePlayerSkipMission() {
+        LogInfo("[HudSkipMission] HandlePlayerSkipMission()")
+
+        if _CurrentRoomMission != RoomQuest.RoomQuest_1 {
+            var roomPosition Vector3 = RoomConfigs.GetRoomPosition(_CurrentRoomMission)
+            Teleport(thisEntity<Player>, roomPosition, thisEntity<Player>.Forward)
+        }
+
+        HideSkipMissionHUD()
+
+        DispatchEventWithPlatform(OnPlayerSkipQuest, thisEntity, PlatformType.Both, List<object>{thisEntity, _CurrentRoomMission})
+    }
+}

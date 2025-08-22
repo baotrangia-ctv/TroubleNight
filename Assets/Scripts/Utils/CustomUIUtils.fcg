@@ -6,6 +6,7 @@ import "EditorGenLib.fcc" as EditorLib
 
 import "../HUDs/HudRoomQuest.fcg" as HudRoomQuest
 import "../HUDs/HudFFQuestion.fcg" as HudFFQuestion
+import "../HUDs/HudSkipMission.fcg" as HudSkipMission
 
 graph CustomUIUtils {
     event OnCustomButtonTapped(button entity<UIWidgetButton>, player entity<Player>) {
@@ -22,6 +23,22 @@ graph CustomUIUtils {
             LogInfo("[OnCustomButtonTapped] " + player + "pressed OpenQuestButton")
 
             player<HudRoomQuest>.ShowQuestContainer()
+        } else {}
+
+
+        // ----------- Skip Mission -----------
+        if button == GetWidgetFromCustomUI(player, button<UIWidget>.ParentUI, EResUISkipMission.SkipButton) {
+            LogInfo("[OnCustomButtonTapped] " + player + "pressed SkipButton")
+
+            player<HudSkipMission>.ShowPopup()
+        } else if button == GetWidgetFromCustomUI(player, button<UIWidget>.ParentUI, EResUISkipMission.ConfirmButton) {
+            LogInfo("[OnCustomButtonTapped] " + player + "pressed ConfirmButton")
+
+            player<HudSkipMission>.HandlePlayerSkipMission()
+        } else if button == GetWidgetFromCustomUI(player, button<UIWidget>.ParentUI, EResUISkipMission.CancelButton) {
+            LogInfo("[OnCustomButtonTapped] " + player + "pressed CancelButton")
+
+            player<HudSkipMission>.HidePopup()
         } else {}
 
 

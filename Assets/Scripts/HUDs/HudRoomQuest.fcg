@@ -26,6 +26,15 @@ graph HudRoomQuest {
         }
     }
 
+    event OnPlayerStartQuest(player entity<Player>, roomQuest int) {
+        if player == thisEntity {
+            LogInfo("[HudRoomQuest] OnPlayerStartQuest(" + roomQuest + ")")
+
+            ShowRoomQuestHUD()
+            HideQuestContainer()
+        }
+    }
+
     func InitRoomQuestHUD() {
         if _RoomQuestHUD != nil {
             return
@@ -47,6 +56,8 @@ graph HudRoomQuest {
     }
 
     func ShowRoomQuestHUD() {
+        LogInfo("[HudRoomQuest] ShowRoomQuestHUD()")
+
         InitRoomQuestHUD()
         UpdateQuestDetails()
         ShowQuestContainer()
@@ -55,20 +66,28 @@ graph HudRoomQuest {
     }
 
     func HideRoomQuestHUD() {
+        LogInfo("[HudRoomQuest] HideRoomQuestHUD()")
+
         _RoomQuestHUD<CustomUI>.IsVisible = false
     }
 
     func ShowQuestContainer() {
+        LogInfo("[HudRoomQuest] ShowQuestContainer()")
+
         _QuestContainer<UIWidget>.Active = true
         _OpenQuestButton<UIWidget>.Active = false
     }
 
     func HideQuestContainer() {
+        LogInfo("[HudRoomQuest] HideQuestContainer()")
+
         _QuestContainer<UIWidget>.Active = false
         _OpenQuestButton<UIWidget>.Active = true
     }
 
     func UpdateQuestDetails() {
+        LogInfo("[HudRoomQuest] UpdateQuestDetails()")
+
         var questTitle StringOrLocString = RoomConfigs.GetRoomTitle(_RoomQuest)
         var questDesc StringOrLocString = RoomConfigs.GetRoomDesc(_RoomQuest)
 
