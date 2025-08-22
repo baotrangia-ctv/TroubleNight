@@ -1,0 +1,116 @@
+{
+  "fileId": "j229vlk503-mem7v7fb-t5zv8oxtbh",
+  "globalscale": 1,
+  "properties": {
+    "Common": ""
+  },
+  "subDynamicResources": {},
+  "version": "1.5.2",
+  "manifest": {
+    "Meshes": [
+      {
+        "Name": "VaultingBox.001.~@FFFUB",
+        "MeshName": "VaultingBox.001",
+        "Type": "common",
+        "OrgExtName": ".~@FFFUB"
+      },
+      {
+        "Name": "VaultingBox.002.~@FFFUB",
+        "MeshName": "VaultingBox.002",
+        "Type": "common",
+        "OrgExtName": ".~@FFFUB"
+      },
+      {
+        "Name": "VaultingBox.003.~@FFFUB",
+        "MeshName": "VaultingBox.003",
+        "Type": "common",
+        "OrgExtName": ".~@FFFUB"
+      }
+    ],
+    "BoneInfos": [],
+    "Anims": [],
+    "ManifestJSON": {
+      "FBXName": "VaultingBox",
+      "ImportSucceeded": true,
+      "MaterialCount": 1,
+      "MaterialDetail": [
+        {
+          "Index": 0,
+          "MaterialName": ""
+        }
+      ],
+      "MeshCount": 3,
+      "MeshDetail": [
+        {
+          "MeshName": "VaultingBox.001",
+          "MaterialIndex": [
+            0
+          ],
+          "Transform": {
+            "Position": [
+              -0.036406,
+              0.859003,
+              0.0165931
+            ],
+            "Rotation": [
+              -90,
+              0,
+              0
+            ],
+            "Scale": [
+              100,
+              100,
+              100
+            ]
+          }
+        },
+        {
+          "MeshName": "VaultingBox.002",
+          "MaterialIndex": [
+            0
+          ],
+          "Transform": {
+            "Position": [
+              -0.015201,
+              0.0950017,
+              -0.961944
+            ],
+            "Rotation": [
+              -90,
+              0,
+              0
+            ],
+            "Scale": [
+              100,
+              100,
+              100
+            ]
+          }
+        },
+        {
+          "MeshName": "VaultingBox.003",
+          "MaterialIndex": [
+            0
+          ],
+          "Transform": {
+            "Position": [
+              0.00138281,
+              -0.298244,
+              0.891637
+            ],
+            "Rotation": [
+              -90,
+              0,
+              0
+            ],
+            "Scale": [
+              100,
+              100,
+              100
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

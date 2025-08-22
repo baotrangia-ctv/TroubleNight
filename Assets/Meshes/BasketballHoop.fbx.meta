@@ -1,0 +1,58 @@
+{
+  "fileId": "49516l7yw2x-mem6sxbj-ru5yp6d6kjp",
+  "globalscale": 1,
+  "properties": {
+    "Common": ""
+  },
+  "subDynamicResources": {},
+  "version": "1.5.2",
+  "manifest": {
+    "Meshes": [
+      {
+        "Name": "BasketballHoop.~@FFFUB",
+        "MeshName": "BasketballHoop",
+        "Type": "common",
+        "OrgExtName": ".~@FFFUB"
+      }
+    ],
+    "BoneInfos": [],
+    "Anims": [],
+    "ManifestJSON": {
+      "FBXName": "BasketballHoop",
+      "ImportSucceeded": true,
+      "MaterialCount": 1,
+      "MaterialDetail": [
+        {
+          "Index": 0,
+          "MaterialName": ""
+        }
+      ],
+      "MeshCount": 1,
+      "MeshDetail": [
+        {
+          "MeshName": "BasketballHoop",
+          "MaterialIndex": [
+            0
+          ],
+          "Transform": {
+            "Position": [
+              0,
+              0,
+              0
+            ],
+            "Rotation": [
+              -90,
+              0,
+              0
+            ],
+            "Scale": [
+              100,
+              100,
+              100
+            ]
+          }
+        }
+      ]
+    }
+  }
+}
