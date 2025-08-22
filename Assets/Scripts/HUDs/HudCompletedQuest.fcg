@@ -39,9 +39,9 @@ graph HudCompletedQuest {
         if roomQuest == RoomQuest.RoomQuest_1 {
             var score int = thisEntity<HudFFQuestion>.GetScore()
             if score >= ROOM_1_NEED_SCORE {
-                _ContentLabel<UIWidgetLabel>.Content = LocString{"HUD_COMPLETED", {score}}
+                _ContentLabel<UIWidgetLabel>.Content = LocString{"HUD_FFQ_COMPLETED", {score}}
             } else {
-                _ContentLabel<UIWidgetLabel>.Content = LocString{"HUD_NOT_COMPLETED", {score}}
+                _ContentLabel<UIWidgetLabel>.Content = LocString{"HUD_FFQ_NOT_COMPLETED", {score}}
             }
 
             WaitForMillisecond(3000)

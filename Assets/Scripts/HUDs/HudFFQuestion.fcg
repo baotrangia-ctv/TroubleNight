@@ -13,17 +13,20 @@ graph HudFFQuestion {
     _TotalScore int
     _Questions List<int>
     _AnswerScores List<int>
+    _IsAllowAnswer bool
 
     _FFQuestionHUD entity<CustomUI>
     _TitleLabel entity<UIWidgetLabel>
     _QuestionLabel entity<UIWidgetLabel>
     _AnswerButtons List<entity<UIWidgetButton>>
+    _ScoreLabel entity<UIWidgetLabel>
 
     event OnAwake() {
         _TotalScore = 0
         _Questions = List<int>{}
         _AnswerScores = List<int>{1, 2, 3, 4, 5}
         _AnswerButtons = List<entity<UIWidgetButton>>{}
+        _IsAllowAnswer = true
     }
 
     event OnPlayerSkipQuest(player entity<Player>, roomQuest int) {
@@ -50,6 +53,9 @@ graph HudFFQuestion {
 
         var answersWidget entity<UIWidget> = GetChildByIndex(containerWidget, 3) as entity<UIWidget>
         _AnswerButtons = GetChildren(answersWidget) as List<entity<UIWidgetButton>>
+
+        var scoreWidget entity<UIWidget> = GetChildByIndex(containerWidget, 4) as entity<UIWidget>
+        _ScoreLabel = GetChildByIndex(scoreWidget, 0) as entity<UIWidgetLabel>
 
         HideQuestionHUD()
     }
@@ -79,7 +85,7 @@ graph HudFFQuestion {
         }
         List.Append(_Questions, questionIndex)
 
-        _TitleLabel<UIWidgetLabel>.Content = LocString{"HUD_QUESTION", {List.Length(_Questions)}}
+        _TitleLabel<UIWidgetLabel>.Content = LocString{"HUD_FFQ_QUESTION", {List.Length(_Questions)}}
 
         _QuestionLabel<UIWidgetLabel>.Content = allQuestions[questionIndex]
 
@@ -97,10 +103,12 @@ graph HudFFQuestion {
     }
 
     func CheckAnswerAllQuestions() {
-        if List.Length(_Questions) == MAX_QUESTIONS {
-            DispatchEventWithPlatform(OnPlayerCompletedQuest, thisEntity, PlatformType.Both, List<object>{thisEntity, RoomQuest.RoomQuest_1})
-            ResetMission()
+        if List.Length(_Questions) != MAX_QUESTIONS {
+            return
         }
+
+        DispatchEventWithPlatform(OnPlayerCompletedQuest, thisEntity, PlatformType.Both, List<object>{thisEntity, RoomQuest.RoomQuest_1})
+        ResetMission()
     }
 
     func ResetMission() {
@@ -120,26 +128,40 @@ graph HudFFQuestion {
     }
 
     async func HandlePlayerAnswer(answerIndex int) {
+        if !_IsAllowAnswer {
+            return
+        }
+
+        _IsAllowAnswer = false
         ShowAnswerScore(answerIndex)
 
         WaitForMillisecond(QUESTION_DURATION)
 
         UpdateQuestionHUD()
+        _IsAllowAnswer = true
     }
 
     func ShowAnswerScore(answerIndex int) {
         var answerButton entity<UIWidgetButton> = _AnswerButtons[answerIndex]
         answerButton<UIWidgetButton>.Color = #30F410
 
-        for key, answerButton in _AnswerButtons {
-            var answerScoreLabel entity<UIWidgetLabel> = GetChildByIndex(answerButton, 1) as entity<UIWidgetLabel>
-            answerScoreLabel<UIWidgetLabel>.Content = "+" + _AnswerScores[key]
-            answerScoreLabel<UIWidget>.Active = true
+        var answerScoreLabel entity<UIWidgetLabel> = GetChildByIndex(answerButton, 1) as entity<UIWidgetLabel>
+        answerScoreLabel<UIWidgetLabel>.Content = "+" + _AnswerScores[answerIndex]
+        answerScoreLabel<UIWidget>.Active = true
 
-            if key == answerIndex {
-                _TotalScore += _AnswerScores[key]
-            }
-        }
+        _TotalScore += _AnswerScores[answerIndex]
+
+        _ScoreLabel<UIWidgetLabel>.Content = LocString{"HUD_FFQ_SCORE", {_TotalScore}}
+
+        // for key, answerButton in _AnswerButtons {
+        //     var answerScoreLabel entity<UIWidgetLabel> = GetChildByIndex(answerButton, 1) as entity<UIWidgetLabel>
+        //     answerScoreLabel<UIWidgetLabel>.Content = "+" + _AnswerScores[key]
+        //     answerScoreLabel<UIWidget>.Active = true
+
+        //     if key == answerIndex {
+        //         _TotalScore += _AnswerScores[key]
+        //     }
+        // }
     }
 
     func GetScore() int {
