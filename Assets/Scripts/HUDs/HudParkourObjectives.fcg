@@ -37,6 +37,12 @@ graph HudParkourObjectives {
         }
     }
 
+    event OnPlayerSkipQuest(player entity<Player>, roomQuest int) {
+        if player == thisEntity && roomQuest == RoomQuest.RoomQuest_3 {
+            HideParkourObjectivesHUD()
+        }
+    }
+
     func InitParkourObjectivesHUD() {
         if _ParkourObjectivesHUD != nil {
             return
@@ -65,6 +71,8 @@ graph HudParkourObjectives {
     }
 
     func HideParkourObjectivesHUD() {
+        LogInfo("[HudParkourObjectives] HideParkourObjectivesHUD()")
+
         _ParkourObjectivesHUD<CustomUI>.IsVisible = false
     }
 
