@@ -5,17 +5,20 @@ import "StdLibrary.fcc" as StdLib
 import "EditorGenLib.fcc" as EditorLib
 
 import "./Configs/MathQuestionConfigs.fcg" as MathQuestionConfigs
+import "Playable.fcc" as Playable
 
 graph NumbersBlocks {
-    SPAWN_QUESTION_DURATION = 7500
-    CALCULATE_DURATION = 3500
+    SPAWN_QUESTION_DURATION = 6000
+    CALCULATE_DURATION = 4250
 
     _IsSpawnQuestion bool
     _Result int
     _Question string
+    _ProgressBarTween entity<Tween>
 
     _MathQuestionHUD entity<CustomUI>
     _QuestionLabel entity<UIWidgetLabel>
+    _ProgressBarWidget entity<UIWidgetImage>
 
     event OnPhaseStart(phase entity<Phase>) {
         var phaseIndex int = phase<Phase>.Index
@@ -58,21 +61,44 @@ graph NumbersBlocks {
         _MathQuestionHUD = mathQuestionHud
 
         _MathQuestionHUD<CustomUI>.InScene = true
-        _MathQuestionHUD<CustomUI>.WorldPosition = Vector3{-59, -38, -35}
-        _MathQuestionHUD<CustomUI>.Scale = Vector3{18.5, 15, 15}
+        _MathQuestionHUD<CustomUI>.WorldPosition = Vector3{-59, -35, -94.5}
+        _MathQuestionHUD<CustomUI>.Scale = Vector3{19, 15, 15}
         _MathQuestionHUD<CustomUI>.Rotation = Vector3{0, 180, 0}
 
         var questionContainer entity<UIWidget> = GetChildByIndex(_MathQuestionHUD, 0) as entity<UIWidget>
         _QuestionLabel = GetChildByIndex(questionContainer, 1) as entity<UIWidgetLabel>
+        var progressBar entity<UIWidgetImage> = GetChildByIndex(questionContainer, 2) as entity<UIWidgetImage>
+        _ProgressBarWidget = GetChildByIndex(progressBar, 0) as entity<UIWidgetImage>
     }
 
     func UpdateQuestionLabel() {
         InitMathQuestionHUD()
-
         _QuestionLabel<UIWidgetLabel>.Content = _Question
+
+        RunProgressBar()
+    }
+
+    func RunProgressBar() {
+        InitBarTween()
+
+        Play(_ProgressBarTween, true)
+    }
+    
+    func InitBarTween() {
+        if _ProgressBarTween != nil {
+            return
+        }
+
+        var curve BezierCurve = CreateCurve({0, 0, 1, 1})
+        CreateTween(_ProgressBarWidget, UIWidgetImage.FillAmount, 1, 0, TweenStyle.Once, curve, CALCULATE_DURATION, out var barTween, false)
+
+        _ProgressBarTween = barTween
     }
 
     func TurnOnAllBlocks() {
+        var barrier entity<Entity> = EResSceneMainGame.Barrier as entity<Entity>
+        SetActive(barrier, false)
+
         var blocksList List<entity<Entity>> = thisEntity<NumberBlocks>.BlockNumbers
         for key, block in blocksList {
             SetActive(block, true)
@@ -80,6 +106,9 @@ graph NumbersBlocks {
     }
 
     func TurnOffBlocksExcept(exceptNumber int) {
+        var barrier entity<Entity> = EResSceneMainGame.Barrier as entity<Entity>
+        SetActive(barrier, true)
+
         var blocksList List<entity<Entity>> = thisEntity<NumberBlocks>.BlockNumbers
         for key, block in blocksList {
             if key + 1 == exceptNumber {

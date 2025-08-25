@@ -130,7 +130,25 @@
     },
     "scene": {
       "id": "scene",
-      "children": []
+      "children": [
+        {
+          "refer": {
+            "fileId": "hffztsqqso7-lw7lmhnn-2mwx0ree7c5",
+            "filePath": "Assets\\Scene\\MainGame.scene",
+            "_tag": {
+              "type": "GFileRefer"
+            },
+            "fileType": "scene"
+          },
+          "scriptName": "MainGame",
+          "children": [
+            {
+              "id": "Vn7sRkmM",
+              "scriptName": "Barrier"
+            }
+          ]
+        }
+      ]
     },
     "prefab": {
       "id": "prefab",

@@ -27334,7 +27334,7 @@
               "entityTagData": {
                 "tagPointers": []
               },
-              "tempIndex": 24,
+              "tempIndex": 1,
               "itemID": 200,
               "seParent": null,
               "ecaScripts": [
@@ -27405,7 +27405,7 @@
               "entityTagData": {
                 "tagPointers": []
               },
-              "tempIndex": 25,
+              "tempIndex": 2,
               "itemID": 200,
               "seParent": null,
               "ecaScripts": [
@@ -27476,7 +27476,7 @@
               "entityTagData": {
                 "tagPointers": []
               },
-              "tempIndex": 26,
+              "tempIndex": 3,
               "itemID": 200,
               "seParent": null,
               "ecaScripts": [
@@ -31341,7 +31341,7 @@
       "entityTagData": {
         "tagPointers": []
       },
-      "tempIndex": 27,
+      "tempIndex": 4,
       "itemID": 143,
       "seParent": null,
       "ecaScripts": [
@@ -31893,7 +31893,7 @@
               "editorVisibleValue": true,
               "position": {
                 "x": 0,
-                "y": -5,
+                "y": -10,
                 "z": 0
               },
               "scale": {
@@ -32037,7 +32037,7 @@
               },
               "position": {
                 "x": 0,
-                "y": 5,
+                "y": 10,
                 "z": 0
               },
               "scale": {
@@ -32046,7 +32046,7 @@
                 "z": 70
               },
               "rotation": {
-                "x": -0.000005008956122765085,
+                "x": 0,
                 "y": 180,
                 "z": 180
               },
@@ -32171,7 +32171,144 @@
                 "resourceId": ""
               },
               "_entityId": "5qMzon8l",
-              "children": [],
+              "children": [
+                {
+                  "_tag": {
+                    "type": "SceneEditEntity",
+                    "resourceId": "Primitive/Empty"
+                  },
+                  "_entityId": "JpaNsyd6",
+                  "children": [],
+                  "prefabVariant": null,
+                  "activeValue": {
+                    "selfValue": true,
+                    "valueTag": "activeValue"
+                  },
+                  "unlockedValue": null,
+                  "editorLockValue": false,
+                  "editorVisibleValue": true,
+                  "position": {
+                    "x": 0.05000000819563866,
+                    "y": -1.1920928955078125e-7,
+                    "z": -0.10000000149011612
+                  },
+                  "scale": {
+                    "x": 5.000000953674316,
+                    "y": 0.2500000596046448,
+                    "z": 0.1071428582072258
+                  },
+                  "rotation": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 270
+                  },
+                  "BTPath": [
+                    null
+                  ],
+                  "visible": true,
+                  "VisibilityLayer": 0,
+                  "modelOptimization": 0,
+                  "streamingLayer": "",
+                  "attributes": [
+                    2,
+                    4
+                  ],
+                  "isTrigger": false,
+                  "collidable": true,
+                  "physicalLayer": 0,
+                  "physicalMaterial": null,
+                  "aoiSetting": 0,
+                  "initialTypes": {},
+                  "componentList": [],
+                  "_filters": [],
+                  "entityTagData": {
+                    "tagPointers": []
+                  },
+                  "tempIndex": 19,
+                  "itemID": 173,
+                  "seParent": null,
+                  "ecaScripts": [
+                    null
+                  ],
+                  "ecaProps": {
+                    "DummyLevelObject": {},
+                    "LevelObject": {},
+                    "Transform": {},
+                    "Entity": {},
+                    "Visibility": {},
+                    "Collider": {}
+                  },
+                  "_entityName": "Direction Post"
+                },
+                {
+                  "_tag": {
+                    "type": "SceneEditEntity",
+                    "resourceId": "Primitive/Empty"
+                  },
+                  "_entityId": "Fg3hEW0N",
+                  "children": [],
+                  "prefabVariant": null,
+                  "activeValue": {
+                    "selfValue": true,
+                    "valueTag": "activeValue"
+                  },
+                  "unlockedValue": null,
+                  "position": {
+                    "x": 0.05000000819563866,
+                    "y": -1.1920928955078125e-7,
+                    "z": 0.20000000298023224
+                  },
+                  "scale": {
+                    "x": 5,
+                    "y": 0.25,
+                    "z": 0.10700000077486038
+                  },
+                  "rotation": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 270
+                  },
+                  "BTPath": [
+                    null
+                  ],
+                  "visible": true,
+                  "VisibilityLayer": 0,
+                  "modelOptimization": 0,
+                  "streamingLayer": "",
+                  "attributes": [
+                    2,
+                    4
+                  ],
+                  "isTrigger": false,
+                  "collidable": true,
+                  "physicalLayer": 0,
+                  "physicalMaterial": null,
+                  "aoiSetting": 0,
+                  "initialTypes": {},
+                  "componentList": [],
+                  "_filters": [],
+                  "entityTagData": {
+                    "tagPointers": []
+                  },
+                  "tempIndex": 21,
+                  "itemID": 173,
+                  "seParent": null,
+                  "ecaScripts": [
+                    null
+                  ],
+                  "ecaProps": {
+                    "DummyLevelObject": {},
+                    "LevelObject": {},
+                    "Transform": {},
+                    "Entity": {},
+                    "Visibility": {},
+                    "Collider": {}
+                  },
+                  "_entityName": "Direction Post (1)",
+                  "editorLockValue": false,
+                  "editorVisibleValue": true
+                }
+              ],
               "prefabVariant": null,
               "activeValue": {
                 "selfValue": true,
@@ -32187,7 +32324,7 @@
                 "z": 0
               },
               "scale": {
-                "x": 10,
+                "x": 20,
                 "y": 1,
                 "z": 70
               },
@@ -32317,7 +32454,144 @@
                 "resourceId": ""
               },
               "_entityId": "6PSTkTLx",
-              "children": [],
+              "children": [
+                {
+                  "_tag": {
+                    "type": "SceneEditEntity",
+                    "resourceId": "Primitive/Empty"
+                  },
+                  "_entityId": "0yMNwohd",
+                  "children": [],
+                  "prefabVariant": null,
+                  "activeValue": {
+                    "selfValue": true,
+                    "valueTag": "activeValue"
+                  },
+                  "unlockedValue": null,
+                  "editorLockValue": false,
+                  "editorVisibleValue": true,
+                  "position": {
+                    "x": -0.05000000819563866,
+                    "y": -1.1920928955078125e-7,
+                    "z": 0.20000000298023224
+                  },
+                  "scale": {
+                    "x": 5.000000953674316,
+                    "y": 0.2500000596046448,
+                    "z": 0.1071428582072258
+                  },
+                  "rotation": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 90
+                  },
+                  "BTPath": [
+                    null
+                  ],
+                  "visible": true,
+                  "VisibilityLayer": 0,
+                  "modelOptimization": 0,
+                  "streamingLayer": "",
+                  "attributes": [
+                    2,
+                    4
+                  ],
+                  "isTrigger": false,
+                  "collidable": true,
+                  "physicalLayer": 0,
+                  "physicalMaterial": null,
+                  "aoiSetting": 0,
+                  "initialTypes": {},
+                  "componentList": [],
+                  "_filters": [],
+                  "entityTagData": {
+                    "tagPointers": []
+                  },
+                  "tempIndex": 20,
+                  "itemID": 173,
+                  "seParent": null,
+                  "ecaScripts": [
+                    null
+                  ],
+                  "ecaProps": {
+                    "DummyLevelObject": {},
+                    "LevelObject": {},
+                    "Transform": {},
+                    "Entity": {},
+                    "Visibility": {},
+                    "Collider": {}
+                  },
+                  "_entityName": "Direction Post"
+                },
+                {
+                  "_tag": {
+                    "type": "SceneEditEntity",
+                    "resourceId": "Primitive/Empty"
+                  },
+                  "_entityId": "b2biqR37",
+                  "children": [],
+                  "prefabVariant": null,
+                  "activeValue": {
+                    "selfValue": true,
+                    "valueTag": "activeValue"
+                  },
+                  "unlockedValue": null,
+                  "position": {
+                    "x": -0.05000000819563866,
+                    "y": -1.1920928955078125e-7,
+                    "z": -0.10000000149011612
+                  },
+                  "scale": {
+                    "x": 5,
+                    "y": 0.25,
+                    "z": 0.10700000077486038
+                  },
+                  "rotation": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 90
+                  },
+                  "BTPath": [
+                    null
+                  ],
+                  "visible": true,
+                  "VisibilityLayer": 0,
+                  "modelOptimization": 0,
+                  "streamingLayer": "",
+                  "attributes": [
+                    2,
+                    4
+                  ],
+                  "isTrigger": false,
+                  "collidable": true,
+                  "physicalLayer": 0,
+                  "physicalMaterial": null,
+                  "aoiSetting": 0,
+                  "initialTypes": {},
+                  "componentList": [],
+                  "_filters": [],
+                  "entityTagData": {
+                    "tagPointers": []
+                  },
+                  "tempIndex": 22,
+                  "itemID": 173,
+                  "seParent": null,
+                  "ecaScripts": [
+                    null
+                  ],
+                  "ecaProps": {
+                    "DummyLevelObject": {},
+                    "LevelObject": {},
+                    "Transform": {},
+                    "Entity": {},
+                    "Visibility": {},
+                    "Collider": {}
+                  },
+                  "_entityName": "Direction Post (1)",
+                  "editorLockValue": false,
+                  "editorVisibleValue": true
+                }
+              ],
               "prefabVariant": null,
               "activeValue": {
                 "selfValue": true,
@@ -32333,14 +32607,14 @@
                 "z": 0
               },
               "scale": {
-                "x": 10,
+                "x": 20,
                 "y": 1,
                 "z": 70
               },
               "rotation": {
                 "x": 0,
                 "y": 0,
-                "z": -90
+                "z": 270
               },
               "BTPath": [
                 null
@@ -32481,10 +32755,10 @@
               "scale": {
                 "x": 25,
                 "y": 1,
-                "z": 10
+                "z": 20
               },
               "rotation": {
-                "x": -90,
+                "x": 270,
                 "y": 0,
                 "z": 0
               },
@@ -32627,7 +32901,7 @@
               "scale": {
                 "x": 25,
                 "y": 1,
-                "z": 10
+                "z": 20
               },
               "rotation": {
                 "x": 90,
@@ -40736,7 +41010,7 @@
           "editorVisibleValue": true,
           "position": {
             "x": 0,
-            "y": 0,
+            "y": -2,
             "z": 0
           },
           "scale": {
@@ -40904,7 +41178,7 @@
           "editorVisibleValue": true,
           "position": {
             "x": 0,
-            "y": -2,
+            "y": -4,
             "z": 30
           },
           "scale": {
@@ -41021,7 +41295,7 @@
             },
             "fileType": "mesh"
           },
-          "_entityName": "Front"
+          "_entityName": "Start"
         },
         {
           "_tag": {
@@ -41029,7 +41303,80 @@
             "resourceId": ""
           },
           "_entityId": "16BX7yH1",
-          "children": [],
+          "children": [
+            {
+              "_tag": {
+                "type": "SceneEditEntity",
+                "resourceId": "Primitive/Empty"
+              },
+              "_entityId": "Vn7sRkmM",
+              "children": [],
+              "prefabVariant": null,
+              "activeValue": {
+                "selfValue": false,
+                "valueTag": "activeValue"
+              },
+              "unlockedValue": null,
+              "editorLockValue": false,
+              "editorVisibleValue": true,
+              "position": {
+                "x": 0,
+                "y": 0.5,
+                "z": 0
+              },
+              "scale": {
+                "x": 1,
+                "y": 1,
+                "z": 1
+              },
+              "rotation": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+              },
+              "BTPath": [
+                null
+              ],
+              "visible": true,
+              "VisibilityLayer": 0,
+              "modelOptimization": 0,
+              "streamingLayer": "",
+              "attributes": [
+                2,
+                4
+              ],
+              "isTrigger": false,
+              "collidable": true,
+              "physicalLayer": 0,
+              "physicalMaterial": null,
+              "aoiSetting": 0,
+              "initialTypes": {},
+              "componentList": [],
+              "_filters": [],
+              "entityTagData": {
+                "tagPointers": []
+              },
+              "tempIndex": 24,
+              "itemID": 143,
+              "seParent": null,
+              "ecaScripts": [],
+              "ecaProps": {
+                "SpawnBox": {},
+                "SpawnPos": {},
+                "LevelObject": {},
+                "Transform": {},
+                "Entity": {},
+                "Visibility": {}
+              },
+              "_entityName": "Barrier",
+              "propsData": {
+                "spawnPointCount": 1,
+                "teamID": 12,
+                "_levelObjectID": 2,
+                "teamIDStr": "12"
+              }
+            }
+          ],
           "prefabVariant": null,
           "activeValue": {
             "selfValue": true,
@@ -41041,7 +41388,7 @@
           },
           "position": {
             "x": 0,
-            "y": -2,
+            "y": -4,
             "z": -30
           },
           "scale": {
@@ -41158,7 +41505,7 @@
             },
             "fileType": "mesh"
           },
-          "_entityName": "Back",
+          "_entityName": "Finish",
           "editorLockValue": false,
           "editorVisibleValue": true
         },
@@ -41182,7 +41529,7 @@
           "editorVisibleValue": true,
           "position": {
             "x": 0,
-            "y": -4,
+            "y": -9,
             "z": 0
           },
           "scale": {
@@ -41316,7 +41663,7 @@
           "editorVisibleValue": true,
           "position": {
             "x": 0,
-            "y": 0,
+            "y": -2,
             "z": -28
           },
           "scale": {
@@ -41445,7 +41792,7 @@
       "position": {
         "x": -59,
         "y": -40,
-        "z": 0
+        "z": -60
       },
       "scale": {
         "x": 1,
@@ -41549,7 +41896,10 @@
                     "selfValue": true,
                     "valueTag": "activeValue"
                   },
-                  "unlockedValue": null,
+                  "unlockedValue": {
+                    "selfValue": true,
+                    "valueTag": "unlockedValue"
+                  },
                   "editorLockValue": false,
                   "editorVisibleValue": true,
                   "position": {
@@ -41685,7 +42035,10 @@
                     "selfValue": true,
                     "valueTag": "activeValue"
                   },
-                  "unlockedValue": null,
+                  "unlockedValue": {
+                    "selfValue": true,
+                    "valueTag": "unlockedValue"
+                  },
                   "position": {
                     "x": -7.147036851229416e-10,
                     "y": 4.165423484465931e-17,
@@ -41821,7 +42174,10 @@
                     "selfValue": true,
                     "valueTag": "activeValue"
                   },
-                  "unlockedValue": null,
+                  "unlockedValue": {
+                    "selfValue": true,
+                    "valueTag": "unlockedValue"
+                  },
                   "position": {
                     "x": 0.09999999403953552,
                     "y": -5.828185489775706e-9,
@@ -41957,7 +42313,10 @@
                     "selfValue": true,
                     "valueTag": "activeValue"
                   },
-                  "unlockedValue": null,
+                  "unlockedValue": {
+                    "selfValue": true,
+                    "valueTag": "unlockedValue"
+                  },
                   "position": {
                     "x": -0.09999999403953552,
                     "y": 5.828185489775706e-9,
@@ -42087,7 +42446,10 @@
                 "selfValue": true,
                 "valueTag": "activeValue"
               },
-              "unlockedValue": null,
+              "unlockedValue": {
+                "selfValue": true,
+                "valueTag": "unlockedValue"
+              },
               "editorLockValue": false,
               "editorVisibleValue": true,
               "position": {
@@ -42157,7 +42519,8 @@
                 "LevelObject": {},
                 "Transform": {},
                 "Entity": {},
-                "Visibility": {}
+                "Visibility": {},
+                "MeshRender": {}
               },
               "propsData": {},
               "entityVersion": 3,
@@ -42182,7 +42545,10 @@
                     "selfValue": true,
                     "valueTag": "activeValue"
                   },
-                  "unlockedValue": null,
+                  "unlockedValue": {
+                    "selfValue": true,
+                    "valueTag": "unlockedValue"
+                  },
                   "position": {
                     "x": -0.05100001394748688,
                     "y": 0.019314656034111977,
@@ -42325,7 +42691,10 @@
                     "selfValue": true,
                     "valueTag": "activeValue"
                   },
-                  "unlockedValue": null,
+                  "unlockedValue": {
+                    "selfValue": true,
+                    "valueTag": "unlockedValue"
+                  },
                   "position": {
                     "x": -0.05100001394748688,
                     "y": 0.018999993801116943,
@@ -42468,7 +42837,10 @@
                     "selfValue": true,
                     "valueTag": "activeValue"
                   },
-                  "unlockedValue": null,
+                  "unlockedValue": {
+                    "selfValue": true,
+                    "valueTag": "unlockedValue"
+                  },
                   "position": {
                     "x": -0.051000017672777176,
                     "y": 0.018999993801116943,
@@ -42611,7 +42983,10 @@
                     "selfValue": true,
                     "valueTag": "activeValue"
                   },
-                  "unlockedValue": null,
+                  "unlockedValue": {
+                    "selfValue": true,
+                    "valueTag": "unlockedValue"
+                  },
                   "position": {
                     "x": -0.05099998414516449,
                     "y": 0.018999993801116943,
@@ -42754,7 +43129,10 @@
                     "selfValue": true,
                     "valueTag": "activeValue"
                   },
-                  "unlockedValue": null,
+                  "unlockedValue": {
+                    "selfValue": true,
+                    "valueTag": "unlockedValue"
+                  },
                   "position": {
                     "x": -0.05099998787045479,
                     "y": 0.018999993801116943,
@@ -42897,7 +43275,10 @@
                     "selfValue": true,
                     "valueTag": "activeValue"
                   },
-                  "unlockedValue": null,
+                  "unlockedValue": {
+                    "selfValue": true,
+                    "valueTag": "unlockedValue"
+                  },
                   "position": {
                     "x": -0.0004904997767880559,
                     "y": 0.018999990075826645,
@@ -43040,7 +43421,10 @@
                     "selfValue": true,
                     "valueTag": "activeValue"
                   },
-                  "unlockedValue": null,
+                  "unlockedValue": {
+                    "selfValue": true,
+                    "valueTag": "unlockedValue"
+                  },
                   "position": {
                     "x": -0.0004904952947981656,
                     "y": 0.018999990075826645,
@@ -43183,7 +43567,10 @@
                     "selfValue": true,
                     "valueTag": "activeValue"
                   },
-                  "unlockedValue": null,
+                  "unlockedValue": {
+                    "selfValue": true,
+                    "valueTag": "unlockedValue"
+                  },
                   "position": {
                     "x": -0.0004904908128082752,
                     "y": 0.018999990075826645,
@@ -43326,7 +43713,10 @@
                     "selfValue": true,
                     "valueTag": "activeValue"
                   },
-                  "unlockedValue": null,
+                  "unlockedValue": {
+                    "selfValue": true,
+                    "valueTag": "unlockedValue"
+                  },
                   "position": {
                     "x": -0.000490524631459266,
                     "y": 0.018999990075826645,
@@ -43469,7 +43859,10 @@
                     "selfValue": true,
                     "valueTag": "activeValue"
                   },
-                  "unlockedValue": null,
+                  "unlockedValue": {
+                    "selfValue": true,
+                    "valueTag": "unlockedValue"
+                  },
                   "position": {
                     "x": -0.0004905202658846974,
                     "y": 0.018999990075826645,
@@ -43612,7 +44005,10 @@
                     "selfValue": true,
                     "valueTag": "activeValue"
                   },
-                  "unlockedValue": null,
+                  "unlockedValue": {
+                    "selfValue": true,
+                    "valueTag": "unlockedValue"
+                  },
                   "position": {
                     "x": 0.04904988780617714,
                     "y": 0.01899999938905239,
@@ -43755,7 +44151,10 @@
                     "selfValue": true,
                     "valueTag": "activeValue"
                   },
-                  "unlockedValue": null,
+                  "unlockedValue": {
+                    "selfValue": true,
+                    "valueTag": "unlockedValue"
+                  },
                   "position": {
                     "x": -0.05099999159574509,
                     "y": 0.018999993801116943,
@@ -43898,7 +44297,10 @@
                     "selfValue": true,
                     "valueTag": "activeValue"
                   },
-                  "unlockedValue": null,
+                  "unlockedValue": {
+                    "selfValue": true,
+                    "valueTag": "unlockedValue"
+                  },
                   "position": {
                     "x": -1.0392223082078544e-8,
                     "y": 0.01900000311434269,
@@ -44041,7 +44443,10 @@
                     "selfValue": true,
                     "valueTag": "activeValue"
                   },
-                  "unlockedValue": null,
+                  "unlockedValue": {
+                    "selfValue": true,
+                    "valueTag": "unlockedValue"
+                  },
                   "position": {
                     "x": 0.049000006169080734,
                     "y": 0.01899999938905239,
@@ -44184,7 +44589,10 @@
                     "selfValue": true,
                     "valueTag": "activeValue"
                   },
-                  "unlockedValue": null,
+                  "unlockedValue": {
+                    "selfValue": true,
+                    "valueTag": "unlockedValue"
+                  },
                   "position": {
                     "x": 0.04904989153146744,
                     "y": 0.01899999938905239,
@@ -44327,7 +44735,10 @@
                     "selfValue": true,
                     "valueTag": "activeValue"
                   },
-                  "unlockedValue": null,
+                  "unlockedValue": {
+                    "selfValue": true,
+                    "valueTag": "unlockedValue"
+                  },
                   "position": {
                     "x": 0.049049895256757736,
                     "y": 0.01899999938905239,
@@ -44470,7 +44881,10 @@
                     "selfValue": true,
                     "valueTag": "activeValue"
                   },
-                  "unlockedValue": null,
+                  "unlockedValue": {
+                    "selfValue": true,
+                    "valueTag": "unlockedValue"
+                  },
                   "position": {
                     "x": 0.04904990270733833,
                     "y": 0.01899999938905239,
@@ -44613,7 +45027,10 @@
                     "selfValue": true,
                     "valueTag": "activeValue"
                   },
-                  "unlockedValue": null,
+                  "unlockedValue": {
+                    "selfValue": true,
+                    "valueTag": "unlockedValue"
+                  },
                   "position": {
                     "x": 0.04904988035559654,
                     "y": 0.01899999938905239,
@@ -44756,7 +45173,10 @@
                     "selfValue": true,
                     "valueTag": "activeValue"
                   },
-                  "unlockedValue": null,
+                  "unlockedValue": {
+                    "selfValue": true,
+                    "valueTag": "unlockedValue"
+                  },
                   "position": {
                     "x": 0.04900000989437103,
                     "y": 0.01899999938905239,
@@ -44899,7 +45319,10 @@
                     "selfValue": true,
                     "valueTag": "activeValue"
                   },
-                  "unlockedValue": null,
+                  "unlockedValue": {
+                    "selfValue": true,
+                    "valueTag": "unlockedValue"
+                  },
                   "position": {
                     "x": -2.99963853755969e-9,
                     "y": 0.01900000311434269,
@@ -45042,7 +45465,10 @@
                     "selfValue": true,
                     "valueTag": "activeValue"
                   },
-                  "unlockedValue": null,
+                  "unlockedValue": {
+                    "selfValue": true,
+                    "valueTag": "unlockedValue"
+                  },
                   "position": {
                     "x": -0.05100000649690628,
                     "y": 0.018999993801116943,
@@ -45179,7 +45605,10 @@
                 "selfValue": true,
                 "valueTag": "activeValue"
               },
-              "unlockedValue": null,
+              "unlockedValue": {
+                "selfValue": true,
+                "valueTag": "unlockedValue"
+              },
               "editorLockValue": false,
               "editorVisibleValue": true,
               "position": {
@@ -45249,7 +45678,8 @@
                 "LevelObject": {},
                 "Transform": {},
                 "Entity": {},
-                "Visibility": {}
+                "Visibility": {},
+                "MeshRender": {}
               },
               "propsData": {},
               "entityVersion": 3,
@@ -45733,7 +46163,7 @@
                   "entityTag79925218"
                 ]
               },
-              "tempIndex": 28,
+              "tempIndex": 5,
               "itemID": 224,
               "seParent": null,
               "ecaScripts": [],
@@ -46108,7 +46538,7 @@
                   "entityTag22530193"
                 ]
               },
-              "tempIndex": 29,
+              "tempIndex": 6,
               "itemID": 224,
               "seParent": null,
               "ecaScripts": [],
@@ -46479,7 +46909,7 @@
                   "entityTag28237978"
                 ]
               },
-              "tempIndex": 30,
+              "tempIndex": 7,
               "itemID": 224,
               "seParent": null,
               "ecaScripts": [],
@@ -46852,7 +47282,7 @@
                   "entityTag48382115"
                 ]
               },
-              "tempIndex": 31,
+              "tempIndex": 8,
               "itemID": 224,
               "seParent": null,
               "ecaScripts": [],
@@ -47051,7 +47481,7 @@
                   "entityTagData": {
                     "tagPointers": []
                   },
-                  "tempIndex": 32,
+                  "tempIndex": 9,
                   "itemID": 29,
                   "seParent": null,
                   "ecaScripts": [
@@ -47125,7 +47555,7 @@
                   "entityTagData": {
                     "tagPointers": []
                   },
-                  "tempIndex": 33,
+                  "tempIndex": 10,
                   "itemID": 29,
                   "seParent": null,
                   "ecaScripts": [],
@@ -47201,7 +47631,7 @@
                   "entityTagData": {
                     "tagPointers": []
                   },
-                  "tempIndex": 34,
+                  "tempIndex": 11,
                   "itemID": 28,
                   "seParent": null,
                   "ecaScripts": [
@@ -47277,7 +47707,7 @@
                   "entityTagData": {
                     "tagPointers": []
                   },
-                  "tempIndex": 35,
+                  "tempIndex": 12,
                   "itemID": 31,
                   "seParent": null,
                   "ecaScripts": [
@@ -47351,7 +47781,7 @@
                   "entityTagData": {
                     "tagPointers": []
                   },
-                  "tempIndex": 36,
+                  "tempIndex": 13,
                   "itemID": 31,
                   "seParent": null,
                   "ecaScripts": [
@@ -47522,7 +47952,7 @@
                   "entityTagData": {
                     "tagPointers": []
                   },
-                  "tempIndex": 37,
+                  "tempIndex": 14,
                   "itemID": 216,
                   "seParent": null,
                   "ecaScripts": [
@@ -47604,7 +48034,7 @@
                   "entityTagData": {
                     "tagPointers": []
                   },
-                  "tempIndex": 38,
+                  "tempIndex": 15,
                   "itemID": 216,
                   "seParent": null,
                   "ecaScripts": [
@@ -47779,7 +48209,7 @@
                   "entityTagData": {
                     "tagPointers": []
                   },
-                  "tempIndex": 39,
+                  "tempIndex": 16,
                   "itemID": 142,
                   "seParent": null,
                   "ecaScripts": [
@@ -47853,7 +48283,7 @@
                   "entityTagData": {
                     "tagPointers": []
                   },
-                  "tempIndex": 40,
+                  "tempIndex": 17,
                   "itemID": 142,
                   "seParent": null,
                   "ecaScripts": [
@@ -47931,7 +48361,7 @@
                   "entityTagData": {
                     "tagPointers": []
                   },
-                  "tempIndex": 41,
+                  "tempIndex": 18,
                   "itemID": 140,
                   "seParent": null,
                   "ecaScripts": [
@@ -48060,7 +48490,10 @@
                     "selfValue": true,
                     "valueTag": "activeValue"
                   },
-                  "unlockedValue": null,
+                  "unlockedValue": {
+                    "selfValue": true,
+                    "valueTag": "unlockedValue"
+                  },
                   "editorLockValue": false,
                   "editorVisibleValue": true,
                   "position": {
@@ -48217,7 +48650,10 @@
                             "selfValue": true,
                             "valueTag": "activeValue"
                           },
-                          "unlockedValue": null,
+                          "unlockedValue": {
+                            "selfValue": true,
+                            "valueTag": "unlockedValue"
+                          },
                           "editorLockValue": false,
                           "editorVisibleValue": true,
                           "position": {
@@ -48360,7 +48796,10 @@
                             "selfValue": true,
                             "valueTag": "activeValue"
                           },
-                          "unlockedValue": null,
+                          "unlockedValue": {
+                            "selfValue": true,
+                            "valueTag": "unlockedValue"
+                          },
                           "editorLockValue": false,
                           "editorVisibleValue": true,
                           "position": {
@@ -48503,7 +48942,10 @@
                             "selfValue": true,
                             "valueTag": "activeValue"
                           },
-                          "unlockedValue": null,
+                          "unlockedValue": {
+                            "selfValue": true,
+                            "valueTag": "unlockedValue"
+                          },
                           "position": {
                             "x": 0.012584686279296875,
                             "y": -0.29227542877197266,
@@ -48646,7 +49088,10 @@
                             "selfValue": true,
                             "valueTag": "activeValue"
                           },
-                          "unlockedValue": null,
+                          "unlockedValue": {
+                            "selfValue": true,
+                            "valueTag": "unlockedValue"
+                          },
                           "position": {
                             "x": 0.00554656982421875,
                             "y": -0.08686542510986328,
@@ -48789,7 +49234,10 @@
                             "selfValue": true,
                             "valueTag": "activeValue"
                           },
-                          "unlockedValue": null,
+                          "unlockedValue": {
+                            "selfValue": true,
+                            "valueTag": "unlockedValue"
+                          },
                           "position": {
                             "x": -0.00495147705078125,
                             "y": 0.10970687866210938,
@@ -48932,7 +49380,10 @@
                             "selfValue": true,
                             "valueTag": "activeValue"
                           },
-                          "unlockedValue": null,
+                          "unlockedValue": {
+                            "selfValue": true,
+                            "valueTag": "unlockedValue"
+                          },
                           "position": {
                             "x": -0.014406204223632812,
                             "y": 0.30983638763427734,
@@ -49075,7 +49526,10 @@
                             "selfValue": true,
                             "valueTag": "activeValue"
                           },
-                          "unlockedValue": null,
+                          "unlockedValue": {
+                            "selfValue": true,
+                            "valueTag": "unlockedValue"
+                          },
                           "position": {
                             "x": -0.024593353271484375,
                             "y": 0.5179991722106934,
@@ -49218,7 +49672,10 @@
                             "selfValue": true,
                             "valueTag": "activeValue"
                           },
-                          "unlockedValue": null,
+                          "unlockedValue": {
+                            "selfValue": true,
+                            "valueTag": "unlockedValue"
+                          },
                           "editorLockValue": false,
                           "editorVisibleValue": true,
                           "position": {
@@ -49355,7 +49812,10 @@
                         "selfValue": true,
                         "valueTag": "activeValue"
                       },
-                      "unlockedValue": null,
+                      "unlockedValue": {
+                        "selfValue": true,
+                        "valueTag": "unlockedValue"
+                      },
                       "editorLockValue": false,
                       "editorVisibleValue": true,
                       "position": {
@@ -49425,7 +49885,8 @@
                         "LevelObject": {},
                         "Transform": {},
                         "Entity": {},
-                        "Visibility": {}
+                        "Visibility": {},
+                        "MeshRender": {}
                       },
                       "propsData": {},
                       "entityVersion": 3,
@@ -59247,7 +59708,10 @@
                     "selfValue": true,
                     "valueTag": "activeValue"
                   },
-                  "unlockedValue": null,
+                  "unlockedValue": {
+                    "selfValue": true,
+                    "valueTag": "unlockedValue"
+                  },
                   "editorLockValue": false,
                   "editorVisibleValue": true,
                   "position": {
@@ -59317,7 +59781,8 @@
                     "LevelObject": {},
                     "Transform": {},
                     "Entity": {},
-                    "Visibility": {}
+                    "Visibility": {},
+                    "MeshRender": {}
                   },
                   "propsData": {},
                   "entityVersion": 3,
@@ -59329,7 +59794,10 @@
                 "selfValue": true,
                 "valueTag": "activeValue"
               },
-              "unlockedValue": null,
+              "unlockedValue": {
+                "selfValue": true,
+                "valueTag": "unlockedValue"
+              },
               "editorLockValue": false,
               "editorVisibleValue": true,
               "position": {
@@ -59399,7 +59867,8 @@
                 "LevelObject": {},
                 "Transform": {},
                 "Entity": {},
-                "Visibility": {}
+                "Visibility": {},
+                "MeshRender": {}
               },
               "propsData": {},
               "entityVersion": 3,
@@ -59576,6 +60045,74 @@
       "propsData": {},
       "entityVersion": 3,
       "_entityName": "Minigame3"
+    },
+    {
+      "_tag": {
+        "type": "SceneEditEntity",
+        "resourceId": "Primitive/Empty"
+      },
+      "_entityId": "EePibw04",
+      "children": [],
+      "prefabVariant": null,
+      "activeValue": {
+        "selfValue": true,
+        "valueTag": "activeValue"
+      },
+      "unlockedValue": null,
+      "editorLockValue": false,
+      "editorVisibleValue": true,
+      "position": {
+        "x": -59.137001037597656,
+        "y": -42.5,
+        "z": -86.05000305175781
+      },
+      "scale": {
+        "x": 2.5,
+        "y": 0.5,
+        "z": 1
+      },
+      "rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "BTPath": [
+        null
+      ],
+      "visible": true,
+      "VisibilityLayer": 0,
+      "modelOptimization": 0,
+      "streamingLayer": "",
+      "attributes": [
+        2,
+        4
+      ],
+      "isTrigger": false,
+      "collidable": false,
+      "physicalLayer": 0,
+      "physicalMaterial": null,
+      "aoiSetting": 0,
+      "initialTypes": {},
+      "componentList": [],
+      "_filters": [],
+      "entityTagData": {
+        "tagPointers": []
+      },
+      "tempIndex": 26,
+      "itemID": 109,
+      "seParent": null,
+      "ecaScripts": [
+        null
+      ],
+      "ecaProps": {
+        "DummyLevelObject": {},
+        "LevelObject": {},
+        "Transform": {},
+        "Entity": {},
+        "Visibility": {},
+        "Collider": {}
+      },
+      "_entityName": "Finish Line Arch"
     }
   ],
   "prefabVariant": null,
