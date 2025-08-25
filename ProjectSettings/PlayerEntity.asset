@@ -83,6 +83,14 @@
       "fileType": "ugcscript"
     },
     {
+      "fileId": "6b2m2yqnjy4-meqi6ao2-28wyao9eb6a",
+      "filePath": "Assets\\Scripts\\Players\\PlayerCamera.fcg",
+      "_tag": {
+        "type": "GFileRefer"
+      },
+      "fileType": "ugcscript"
+    },
+    {
       "fileId": "3o4lrzunmo9-membzef2-qp2ibautw5",
       "filePath": "Assets\\Scripts\\HUDs\\HudControls.fcg",
       "_tag": {

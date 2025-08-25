@@ -1,0 +1,62 @@
+import "Camera.fcc" as Camera
+import "StdLibrary.fcc" as StdLib
+import "EditorGenLib.fcc" as EditorLib
+
+graph PlayerCamera {
+    _DefaultCamera entity<Camera>
+    _CustomCamera entity<Camera>
+
+    event OnPlayerStartQuest(player entity<Player>, roomQuest int) {
+        if player == thisEntity && roomQuest == RoomQuest.RoomQuest_2 {
+            SetCustomCamera()
+        }
+    }
+
+    event OnPlayerSkipQuest(player entity<Player>, roomQuest int) {
+        if player == thisEntity && roomQuest == RoomQuest.RoomQuest_2 {
+            SetDefaultCamera()
+        }
+    }
+
+    event OnPlayerCompletedQuest(player entity<Player>, roomQuest int) {
+        if player == thisEntity && roomQuest == RoomQuest.RoomQuest_2 {
+            SetDefaultCamera()
+        }
+    }
+
+    func InitDefaultCamera() {
+        if _DefaultCamera != nil {
+            return
+        }
+
+        _DefaultCamera = thisEntity<Player>.MainCamera
+    }
+
+    func SetDefaultCamera() {
+        LogInfo("[PlayerCamera] SetDefaultCamera()")
+
+        SwitchCamera(thisEntity<Player>, _DefaultCamera, CameraTransitionType.Default, 0)
+    }
+
+    func InitCustomCamera() {
+        if _CustomCamera != nil {
+            return
+        }
+
+        CreateCamera(CameraType.ThirdPerson, out var customCamera)
+        _CustomCamera = customCamera
+
+        _CustomCamera<Camera>.FollowTarget = thisEntity
+        _CustomCamera<Camera>.FOV = 80
+        _CustomCamera<Camera>.Offset = Vector3{0, 0.5, 0}
+    }
+
+    func SetCustomCamera() {
+        LogInfo("[PlayerCamera] SetCustomCamera()")
+
+        InitDefaultCamera()
+        InitCustomCamera()
+
+        SwitchCamera(thisEntity<Player>, _CustomCamera, CameraTransitionType.Default, 0)
+    }
+}
