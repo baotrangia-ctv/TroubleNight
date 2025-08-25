@@ -169,6 +169,40 @@
       "apiTargetV2": "both",
       "version": 45,
       "key": "signal_16387453"
+    },
+    "signal_92394833": {
+      "name": "OnPlayerNearSafeBox",
+      "eventType": 0,
+      "enitityType": "Entity",
+      "typeID": 100008,
+      "props": [
+        {
+          "name": "player",
+          "value": "Player",
+          "key": 1
+        }
+      ],
+      "propCount": 1,
+      "apiTargetV2": "both",
+      "version": 45,
+      "key": "signal_92394833"
+    },
+    "signal_95043022": {
+      "name": "OnPlayerFarSafeBox",
+      "eventType": 0,
+      "enitityType": "Entity",
+      "typeID": 100009,
+      "props": [
+        {
+          "name": "player",
+          "value": "Player",
+          "key": 1
+        }
+      ],
+      "propCount": 1,
+      "apiTargetV2": "both",
+      "version": 45,
+      "key": "signal_95043022"
     }
   },
   "customName": {
@@ -179,7 +213,9 @@
     "OnPlayerStartQuest": "signal_29671678",
     "OnPlayerGotObjective": "signal_74408007",
     "OnPlayerSkipQuest": "signal_64061555",
-    "OnPlayerLeaveRoom": "signal_16387453"
+    "OnPlayerLeaveRoom": "signal_16387453",
+    "OnPlayerNearSafeBox": "signal_92394833",
+    "OnPlayerFarSafeBox": "signal_95043022"
   },
   "children": []
 }

@@ -4,6 +4,7 @@ import "Player.fcc" as Player
 import "StdLibrary.fcc" as StdLib
 import "EditorGenLib.fcc" as EditorLib
 
+import "../HUDs/HudSafeBox.fcg" as HudSafeBox
 import "../HUDs/HudRoomQuest.fcg" as HudRoomQuest
 import "../HUDs/HudFFQuestion.fcg" as HudFFQuestion
 import "../HUDs/HudSkipMission.fcg" as HudSkipMission
@@ -63,6 +64,54 @@ graph CustomUIUtils {
             LogInfo("[OnCustomButtonTapped] " + player + "pressed Answer5Button")
 
             player<HudFFQuestion>.HandlePlayerAnswer(4)
+        } else {}
+
+
+        // ----------- Hidden Room -----------
+        if button == GetWidgetFromCustomUI(player, button<UIWidget>.ParentUI, EResUISafeBox.CloseButton) {
+            LogInfo("[OnCustomButtonTapped] " + player + "pressed CloseButton")
+
+            player<HudSafeBox>.HideSafeBoxHUD()
+        } else if button == GetWidgetFromCustomUI(player, button<UIWidget>.ParentUI, EResUISafeBox.Number0) {
+            LogInfo("[OnCustomButtonTapped] " + player + "pressed Number0")
+
+            player<HudSafeBox>.UpdatePressedPassword(0)
+        } else if button == GetWidgetFromCustomUI(player, button<UIWidget>.ParentUI, EResUISafeBox.Number1) {
+            LogInfo("[OnCustomButtonTapped] " + player + "pressed Number1")
+
+            player<HudSafeBox>.UpdatePressedPassword(1)
+        } else if button == GetWidgetFromCustomUI(player, button<UIWidget>.ParentUI, EResUISafeBox.Number2) {
+            LogInfo("[OnCustomButtonTapped] " + player + "pressed Number2")
+
+            player<HudSafeBox>.UpdatePressedPassword(2)
+        } else if button == GetWidgetFromCustomUI(player, button<UIWidget>.ParentUI, EResUISafeBox.Number3) {
+            LogInfo("[OnCustomButtonTapped] " + player + "pressed Number3")
+
+            player<HudSafeBox>.UpdatePressedPassword(3)
+        } else if button == GetWidgetFromCustomUI(player, button<UIWidget>.ParentUI, EResUISafeBox.Number4) {
+            LogInfo("[OnCustomButtonTapped] " + player + "pressed Number4")
+
+            player<HudSafeBox>.UpdatePressedPassword(4)
+        } else if button == GetWidgetFromCustomUI(player, button<UIWidget>.ParentUI, EResUISafeBox.Number5) {
+            LogInfo("[OnCustomButtonTapped] " + player + "pressed Number5")
+
+            player<HudSafeBox>.UpdatePressedPassword(5)
+        } else if button == GetWidgetFromCustomUI(player, button<UIWidget>.ParentUI, EResUISafeBox.Number6) {
+            LogInfo("[OnCustomButtonTapped] " + player + "pressed Number6")
+
+            player<HudSafeBox>.UpdatePressedPassword(6)
+        } else if button == GetWidgetFromCustomUI(player, button<UIWidget>.ParentUI, EResUISafeBox.Number7) {
+            LogInfo("[OnCustomButtonTapped] " + player + "pressed Number7")
+
+            player<HudSafeBox>.UpdatePressedPassword(7)
+        } else if button == GetWidgetFromCustomUI(player, button<UIWidget>.ParentUI, EResUISafeBox.Number8) {
+            LogInfo("[OnCustomButtonTapped] " + player + "pressed Number8")
+
+            player<HudSafeBox>.UpdatePressedPassword(8)
+        } else if button == GetWidgetFromCustomUI(player, button<UIWidget>.ParentUI, EResUISafeBox.Number9) {
+            LogInfo("[OnCustomButtonTapped] " + player + "pressed Number9")
+
+            player<HudSafeBox>.UpdatePressedPassword(9)
         } else {}
     }
 

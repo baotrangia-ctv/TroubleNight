@@ -9,16 +9,13 @@ graph HudControls {
         PlayerUISwitchType.Sprint,
         PlayerUISwitchType.Attack,
         PlayerUISwitchType.Jump,
-        PlayerUISwitchType.MedicalProps,
         PlayerUISwitchType.Crouch,
         PlayerUISwitchType.Prone,
         PlayerUISwitchType.TeammatesInfo,
+        PlayerUISwitchType.Emote,
         PlayerUISwitchType.QuickChat,
-        PlayerUISwitchType.HP,
-        PlayerUISwitchType.EP,
         PlayerUISwitchType.Speaker,
         PlayerUISwitchType.MicroPhone,
-        PlayerUISwitchType.Mark,
     }
 
     event OnAwake() {

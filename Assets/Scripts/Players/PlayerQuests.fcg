@@ -22,16 +22,16 @@ graph PlayerQuests {
         }
     }
 
-    event OnPlayerFinished(player entity<Player>) {
-        var result int = 2 // Lose
-        if player == thisEntity {
-            result = 1 // Win
-            // Teleport user to hidden room
-        }
+    // event OnPlayerFinished(player entity<Player>) {
+    //     var result int = 2 // Lose
+    //     if player == thisEntity {
+    //         result = 1 // Win
+    //         // Teleport user to hidden room
+    //     }
 
-        CreateBuiltInUI(out var resultBanner, thisEntity<Player>, BuiltInUIType.ResultBannerHud)
-        resultBanner<UIWinOrLoseBanner>.Result = result
-    }
+    //     CreateBuiltInUI(out var resultBanner, thisEntity<Player>, BuiltInUIType.ResultBannerHud)
+    //     resultBanner<UIWinOrLoseBanner>.Result = result
+    // }
 
     async func HandlePlayerCompletedQuest(roomQuest RoomQuest) {
         LogInfo("[PlayerQuests] OnPlayerCompletedQuest(" + thisEntity<Player>.NickName + ", " + roomQuest + ")")
@@ -50,17 +50,20 @@ graph PlayerQuests {
             List.Append(_CompletedQuests, roomQuest)
         }
 
-        CheckPlayerFinish()
+        CheckPlayerCompletedAllQuests()
     }
 
-    func CheckPlayerFinish() {
+    func CheckPlayerCompletedAllQuests() {
         if List.Length(_CompletedQuests) < MAX_QUESTS {
             return
         }
 
-        for key, player in GetAllPlayers() {
-            DispatchEventWithPlatform(OnPlayerFinished, player, PlatformType.Both, List<object>{thisEntity})
-        }
+        var hiddenRoomPosition Vector3 = RoomConfigs.GetRoomSpawnPosition(RoomQuest.HiddenRoom)
+        Teleport(thisEntity<Player>, hiddenRoomPosition, thisEntity<Player>.Forward)
+
+        // for key, player in GetAllPlayers() {
+        //     DispatchEventWithPlatform(OnPlayerFinished, player, PlatformType.Both, List<object>{thisEntity})
+        // }
     }
 
     func IsPassedQuest(roomQuest RoomQuest) bool {
@@ -85,18 +88,12 @@ graph PlayerQuests {
             Teleport(thisEntity<Player>, spawnPosition, thisEntity<Player>.Forward)
         } else if roomQuest == RoomQuest.RoomQuest_3 {
             Teleport(thisEntity<Player>, spawnPosition, thisEntity<Player>.Forward)
+        } else if roomQuest == RoomQuest.RoomQuest_4 {
+            // Temp
+            var hiddenRoomPosition Vector3 = RoomConfigs.GetRoomSpawnPosition(RoomQuest.HiddenRoom)
+            Teleport(thisEntity<Player>, hiddenRoomPosition, thisEntity<Player>.Forward)
         } else {}
 
         DispatchEventWithPlatform(OnPlayerStartQuest, thisEntity, PlatformType.Both, List<object>{thisEntity, roomQuest})
-        start HandlePlayerCompletedQuestFake(roomQuest)
-    }
-
-    async func HandlePlayerCompletedQuestFake(roomQuest RoomQuest) {
-        if roomQuest == RoomQuest.RoomQuest_1 || roomQuest == RoomQuest.RoomQuest_2 || roomQuest == RoomQuest.RoomQuest_3 {
-            return
-        }
-
-        WaitForMillisecond(3000)
-        DispatchEventWithPlatform(OnPlayerCompletedQuest, thisEntity, PlatformType.Both, List<object>{thisEntity, roomQuest})
     }
 }

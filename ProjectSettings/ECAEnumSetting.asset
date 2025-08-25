@@ -13,25 +13,31 @@
         {
           "label": "RoomQuest_1",
           "key": "E91337870",
-          "value": 0,
-          "type": "Int"
+          "type": "Int",
+          "value": 0
         },
         {
           "label": "RoomQuest_2",
           "key": "E83876638",
-          "value": 1,
-          "type": "Int"
+          "type": "Int",
+          "value": 1
         },
         {
           "label": "RoomQuest_3",
           "key": "E22637099",
-          "value": 2,
-          "type": "Int"
+          "type": "Int",
+          "value": 2
         },
         {
           "label": "RoomQuest_4",
           "key": "E69640605",
-          "value": 3,
+          "type": "Int",
+          "value": 3
+        },
+        {
+          "label": "HiddenRoom",
+          "key": "E47570709",
+          "value": 4,
           "type": "Int"
         }
       ],
@@ -44,4 +50,4 @@
   },
   "children": []
 }
-//"{FE:{"v":"1.14.3847898","c":{"FF":5001},"s":100}
+//"{FE:{"v":"1.14.3861343","c":{"FF":5001},"s":100}

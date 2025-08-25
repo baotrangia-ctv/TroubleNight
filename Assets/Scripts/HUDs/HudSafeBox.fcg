@@ -1,0 +1,119 @@
+import "Hud.fcc" as Hud
+import "List.fcc" as List
+import "StdLibrary.fcc" as StdLib
+import "EditorGenLib.fcc" as EditorLib
+
+import "../Managers/HintsManager.fcg" as HintsManager
+
+graph HudSafeBox {
+    MAX_PASS_LENGTH = 4
+
+    _SafeBoxHUD entity<CustomUI>
+    _CurrentPassIndex int
+    _CurrentPass List<int>
+
+    _CurrPassLabels List<entity<UIWidgetLabel>>
+    _SelectedWidget List<entity<UIWidgetImage>>
+
+    event OnAwake() {
+        _CurrentPassIndex = 0
+        _CurrentPass = List<int>{}
+
+        _CurrPassLabels = List<entity<UIWidgetLabel>>{}
+        _SelectedWidget = List<entity<UIWidgetImage>>{}
+    }
+
+    event OnPlayerNearSafeBox(player entity<Player>) {
+        if player == thisEntity {
+            ShowSafeBoxHUD()
+        }
+    }
+
+    event OnPlayerFarSafeBox(player entity<Player>) {
+        if player == thisEntity {
+            HideSafeBoxHUD()
+        }
+    }
+
+    func InitSafeBoxHUD() {
+        if _SafeBoxHUD != nil {
+            return
+        }
+
+        CreateCustomUI(out var safeBoxHud, thisEntity<Player>, EResUI.SafeBox)
+        _SafeBoxHUD = safeBoxHud
+
+        var containerWidget entity<UIWidget> = GetChildByIndex(_SafeBoxHUD, 0) as entity<UIWidget>
+        var passwordWidget entity<UIWidget> = GetChildByIndex(containerWidget, 2) as entity<UIWidget>
+        var currentPasswordsWidget entity<UIWidget> =  GetChildByIndex(passwordWidget, 2) as entity<UIWidget>
+        for key, currPassWidget in GetChildren(currentPasswordsWidget) {
+            var currPassNumber entity<UIWidgetLabel> = GetChildByIndex(currPassWidget, 0) as entity<UIWidgetLabel>
+            List.Append(_CurrPassLabels, currPassNumber)
+
+            var selectedWidget entity<UIWidgetImage> = GetChildByIndex(currPassWidget, 1) as entity<UIWidgetImage>
+            List.Append(_SelectedWidget, selectedWidget)
+        }
+
+        HideSafeBoxHUD()
+    }
+
+    func ShowSafeBoxHUD() {
+        InitSafeBoxHUD()
+        _SafeBoxHUD<CustomUI>.IsVisible = true
+    }
+
+    func HideSafeBoxHUD() {
+        _SafeBoxHUD<CustomUI>.IsVisible = false
+    }
+
+    func UpdatePressedPassword(password int) {
+        var currPassWidget entity<UIWidgetLabel> = _CurrPassLabels[_CurrentPassIndex]
+        currPassWidget<UIWidgetLabel>.Content = "" + password
+
+        var selectedWidget entity<UIWidget> = _SelectedWidget[_CurrentPassIndex]
+        selectedWidget<UIWidget>.Active = false
+
+        _CurrentPassIndex += 1
+        List.Append(_CurrentPass, password)
+
+        selectedWidget = _SelectedWidget[_CurrentPassIndex]
+        selectedWidget<UIWidget>.Active = true
+
+        if _CurrentPassIndex == MAX_PASS_LENGTH {
+            CheckPasswords()
+        }
+    }
+
+    func CheckPasswords() {
+        var correctPasswords List<int> = globalEntity<HintsManager>.GetHintsList()
+        LogWarning(_CurrentPass + " " + correctPasswords)
+
+        var isCorrect bool = true
+        for key, currPass in _CurrentPass {
+            if currPass != correctPasswords[key] {
+                isCorrect = false
+                break
+            }
+        }
+
+        if isCorrect {
+            LogInfo("[HudSafeBox] Entered correct password!")
+            HideSafeBoxHUD()
+        } else {
+            LogInfo("[HudSafeBox] Entered incorrect password!")
+            ResetPasswords()
+        }
+    }
+
+    func ResetPasswords() {
+        _CurrentPassIndex = 0
+        _CurrentPass = List<int>{}
+
+        var selectedWidget entity<UIWidget> = _SelectedWidget[_CurrentPassIndex]
+        selectedWidget<UIWidget>.Active = true
+
+        for key, currPassLabel in _CurrPassLabels {
+            currPassLabel<UIWidgetLabel>.Content = ""
+        }
+    }
+}

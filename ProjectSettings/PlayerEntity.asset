@@ -137,6 +137,14 @@
         "type": "GFileRefer"
       },
       "fileType": "ugcscript"
+    },
+    {
+      "fileId": "bfhgxy8c4zi-meqv5zk1-zgygpaqxyok",
+      "filePath": "Assets\\Scripts\\HUDs\\HudSafeBox.fcg",
+      "_tag": {
+        "type": "GFileRefer"
+      },
+      "fileType": "ugcscript"
     }
   ],
   "avatarInfo": null,

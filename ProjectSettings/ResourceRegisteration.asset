@@ -137,6 +137,63 @@
           },
           "scriptName": "MathBoard",
           "children": []
+        },
+        {
+          "refer": {
+            "fileId": "mlh2oq7afqa-meqt0q05-jp8lkc3savf",
+            "filePath": "Assets\\HUDs\\SafeBox.ui",
+            "_tag": {
+              "type": "GFileRefer"
+            },
+            "fileType": "ui"
+          },
+          "scriptName": "SafeBox",
+          "children": [
+            {
+              "id": "c9CN9Chu",
+              "scriptName": "Number0"
+            },
+            {
+              "id": "BRWFtOLX",
+              "scriptName": "Number1"
+            },
+            {
+              "id": "u55RcczR",
+              "scriptName": "Number2"
+            },
+            {
+              "id": "tAcceykG",
+              "scriptName": "Number3"
+            },
+            {
+              "id": "CHXPTCEt",
+              "scriptName": "Number4"
+            },
+            {
+              "id": "exl7S7fY",
+              "scriptName": "Number5"
+            },
+            {
+              "id": "tY5ehBZ2",
+              "scriptName": "Number6"
+            },
+            {
+              "id": "A0ifnQiD",
+              "scriptName": "Number7"
+            },
+            {
+              "id": "lURx6Qkv",
+              "scriptName": "Number8"
+            },
+            {
+              "id": "8PNVQnZG",
+              "scriptName": "Number9"
+            },
+            {
+              "id": "rus5Kf2B",
+              "scriptName": "CloseButton"
+            }
+          ]
         }
       ]
     },
