@@ -4,6 +4,7 @@ import "StdLibrary.fcc" as StdLib
 import "EditorGenLib.fcc" as EditorLib
 
 import "../Managers/HintsManager.fcg" as HintsManager
+import "Playable.fcc" as Playable
 
 graph HudSafeBox {
     MAX_PASS_LENGTH = 4
@@ -98,11 +99,42 @@ graph HudSafeBox {
 
         if isCorrect {
             LogInfo("[HudSafeBox] Entered correct password!")
-            HideSafeBoxHUD()
+            start AlertCorrectPassword()
         } else {
             LogInfo("[HudSafeBox] Entered incorrect password!")
-            ResetPasswords()
+            start AlertIncorrectPassword()
         }
+    }
+
+    async func AlertIncorrectPassword() {
+        for key, currPassLabel in _CurrPassLabels {
+            start TweenTextColor(currPassLabel, #F35353)
+        }
+
+        WaitForMillisecond(1500)
+
+        ResetPasswords()
+    }
+
+    async func AlertCorrectPassword() {
+        for key, currPassLabel in _CurrPassLabels {
+            start TweenTextColor(currPassLabel, #45E0A6)
+        }
+
+        WaitForMillisecond(1500)
+
+        HideSafeBoxHUD()
+    }
+
+    async func TweenTextColor(labelWidget entity<UIWidgetLabel>, color Color) {
+        var curve BezierCurve = CreateCurve({0, 0, 1, 1})
+        CreateTween(labelWidget, UIWidgetLabel.Color, color, #C8D0D3, TweenStyle.PingPong, curve, 200, out var tweenColor, true)
+
+        WaitForMillisecond(1000)
+        Destroy(tweenColor)
+
+        WaitForNextFrame()
+        labelWidget<UIWidgetLabel>.Color = #C8D0D3
     }
 
     func ResetPasswords() {
