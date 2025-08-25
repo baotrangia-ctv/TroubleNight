@@ -274,7 +274,7 @@
                 "priority": 0,
                 "text": {
                   "value": "CONGRATULATIONS",
-                  "key": "HUD_CONGRAT",
+                  "key": "",
                   "font": "Default",
                   "fontSize": 26,
                   "fontStyle": {
