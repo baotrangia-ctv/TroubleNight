@@ -1,0 +1,113 @@
+import "Hud.fcc" as Hud
+import "List.fcc" as List
+import "Math.fcc" as Math
+import "Workflow.fcc" as Workflow
+import "StdLibrary.fcc" as StdLib
+import "EditorGenLib.fcc" as EditorLib
+
+graph HintsManager {
+    CLOCK_HOUR Map<int, EResMaterial> = Map<int, EResMaterial> {
+        0: EResMaterial.Clock0,
+        1: EResMaterial.Clock1,
+        2: EResMaterial.Clock2,
+        3: EResMaterial.Clock3,
+        4: EResMaterial.Clock4,
+        5: EResMaterial.Clock5,
+        6: EResMaterial.Clock6,
+        7: EResMaterial.Clock7,
+        8: EResMaterial.Clock8,
+        9: EResMaterial.Clock9,
+    }
+    MATH_DRAWING Map<int, EResSprite> = Map<int, EResSprite> {
+        4: EResSprite.Math4,
+        5: EResSprite.Math5,
+        6: EResSprite.Math6,
+        8: EResSprite.Math8,
+    }
+
+    _HintsList List<int>
+
+    event OnAwake() {
+        _HintsList = List<int>{0, 0, 0, 0}
+    }
+
+    event OnPhaseStart(phase entity<Phase>) {
+        var phaseIndex int = phase<Phase>.Index
+        if phaseIndex == EPhase.InGame {
+            UpdateHints()
+        }
+    }
+
+    func UpdateHints() {
+        UpdateHintRoom1()
+        UpdateHintRoom2()
+        UpdateHintRoom3()
+        UpdateHintRoom4()
+    }
+
+    func UpdateHintRoom1() {
+        var clockEntity entity<Entity> = EResSceneMainGame.Clock as entity<Entity>
+        var randomHour int = RandomInt(0, 10)
+
+        LogInfo("[HintsManager] UpdateHintRoom1(" + randomHour + ")")
+        _HintsList[0] = randomHour
+
+        clockEntity<CustomRender>.MaterialIDList[0] = CLOCK_HOUR[randomHour]
+    }
+
+    func UpdateHintRoom2() {
+        var mathDrawings List<int> = List<int>{4, 5, 6, 8}
+        var randomIndex int = RandomInt(0, List.Length(mathDrawings))
+
+        LogInfo("[HintsManager] UpdateHintRoom2(" + randomIndex + ")")
+        _HintsList[1] = mathDrawings[randomIndex]
+
+        CreateCustomUI(out var mathBoardHud, nil, EResUI.MathBoard)
+        mathBoardHud<CustomUI>.InScene = true
+        mathBoardHud<CustomUI>.WorldPosition = Vector3{-23, 2.5, 0}
+        mathBoardHud<CustomUI>.Scale = Vector3{2, 1, 1}
+        mathBoardHud<CustomUI>.Rotation = Vector3{0, 270, 0}
+
+        var containerWidget entity<UIWidget> = GetChildByIndex(mathBoardHud, 0) as entity<UIWidget>
+        var drawingImg entity<UIWidgetImage> = GetChildByIndex(containerWidget, 0) as entity<UIWidgetImage>
+        drawingImg<UIWidgetImage>.SpriteName = MATH_DRAWING[mathDrawings[randomIndex]]
+    }
+
+    func UpdateHintRoom3() {
+        var basketBalls entity<Entity> = EResSceneMainGame.BasketBalls as entity<Entity>
+        var soccerBalls entity<Entity> = EResSceneMainGame.SoccerBalls as entity<Entity>
+
+        var randomType int = RandomInt(0, 2) // 0: Basket, 1: Soccer
+        var allBalls List<entity<Entity>>
+        if randomType == 0 {
+            SetActive(soccerBalls, false)
+            allBalls = GetChildren(basketBalls)
+        } else {
+            SetActive(basketBalls, false)
+            allBalls = GetChildren(soccerBalls)
+        }
+
+        var numberBalls int = RandomInt(0, 10)
+        LogInfo("[HintsManager] UpdateHintRoom3(" + numberBalls + ")")
+        _HintsList[2] = 10 - numberBalls
+
+        var ballIndexes List<int> = List<int>{0, 1, 2, 3, 4, 5, 6, 7, 8, 9}
+        while numberBalls > 0 {
+            var randomBall int = RandomInt(0, List.Length(ballIndexes))
+            SetActive(allBalls[randomBall], false)
+
+            List.RemoveAt(ballIndexes, randomBall)
+
+            numberBalls -= 1
+        }
+    }
+
+    func UpdateHintRoom4() {
+        LogInfo("[HintsManager] UpdateHintRoom4()")
+        _HintsList[2] = 0
+    }
+
+    func GetHintsList() List<int> {
+        return _HintsList
+    }
+}

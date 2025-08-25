@@ -125,6 +125,18 @@
               "scriptName": "ConfirmButton"
             }
           ]
+        },
+        {
+          "refer": {
+            "fileId": "frjlj5oa68s-meqmetp4-0ht2fltyeeyt",
+            "filePath": "Assets\\HUDs\\MathBoard.ui",
+            "_tag": {
+              "type": "GFileRefer"
+            },
+            "fileType": "ui"
+          },
+          "scriptName": "MathBoard",
+          "children": []
         }
       ]
     },
@@ -145,6 +157,18 @@
             {
               "id": "Vn7sRkmM",
               "scriptName": "Barrier"
+            },
+            {
+              "id": "dhi7EfU9",
+              "scriptName": "Clock"
+            },
+            {
+              "id": "JoTp7haG",
+              "scriptName": "BasketBalls"
+            },
+            {
+              "id": "0TYMPeJz",
+              "scriptName": "SoccerBalls"
             }
           ]
         }
@@ -164,7 +188,56 @@
     },
     "texture": {
       "id": "texture",
-      "children": []
+      "children": [
+        {
+          "refer": {
+            "fileId": "oyminhjyjem-meqmq72x-135ah686vpzg",
+            "filePath": "Assets\\Sprites\\MathBoard\\Math4.png",
+            "_tag": {
+              "type": "GFileRefer"
+            },
+            "fileType": "texture"
+          },
+          "scriptName": "Math4",
+          "children": []
+        },
+        {
+          "refer": {
+            "fileId": "9b9qqfr5ku-meqmq75u-god6f4p87tm",
+            "filePath": "Assets\\Sprites\\MathBoard\\Math5.png",
+            "_tag": {
+              "type": "GFileRefer"
+            },
+            "fileType": "texture"
+          },
+          "scriptName": "Math5",
+          "children": []
+        },
+        {
+          "refer": {
+            "fileId": "8zegipvzuh3-meqmq7bb-d9ixipt9zf6",
+            "filePath": "Assets\\Sprites\\MathBoard\\Math6.png",
+            "_tag": {
+              "type": "GFileRefer"
+            },
+            "fileType": "texture"
+          },
+          "scriptName": "Math6",
+          "children": []
+        },
+        {
+          "refer": {
+            "fileId": "5zyqqarkdxm-meqmq78k-6qx1rbg4cau",
+            "filePath": "Assets\\Sprites\\MathBoard\\Math8.png",
+            "_tag": {
+              "type": "GFileRefer"
+            },
+            "fileType": "texture"
+          },
+          "scriptName": "Math8",
+          "children": []
+        }
+      ]
     },
     "effecttype": {
       "id": "effecttype",
@@ -216,7 +289,128 @@
     },
     "material": {
       "id": "material",
-      "children": []
+      "children": [
+        {
+          "refer": {
+            "fileId": "rpy2ebjbt4q-meqktjfj-oxb4xdhzxp",
+            "filePath": "Assets\\Materials\\Clocks\\Clock0.mat",
+            "_tag": {
+              "type": "GFileRefer"
+            },
+            "fileType": "material"
+          },
+          "scriptName": "Clock0",
+          "children": []
+        },
+        {
+          "refer": {
+            "fileId": "o5z4vtx48z-meqktw84-4hr37f2wynr",
+            "filePath": "Assets\\Materials\\Clocks\\Clock1.mat",
+            "_tag": {
+              "type": "GFileRefer"
+            },
+            "fileType": "material"
+          },
+          "scriptName": "Clock1",
+          "children": []
+        },
+        {
+          "refer": {
+            "fileId": "cbj0pavy57w-meqktws3-zlpffdy9cnm",
+            "filePath": "Assets\\Materials\\Clocks\\Clock2.mat",
+            "_tag": {
+              "type": "GFileRefer"
+            },
+            "fileType": "material"
+          },
+          "scriptName": "Clock2",
+          "children": []
+        },
+        {
+          "refer": {
+            "fileId": "2b741v300kf-meqktwy2-00aoxb5ho5zxi",
+            "filePath": "Assets\\Materials\\Clocks\\Clock3.mat",
+            "_tag": {
+              "type": "GFileRefer"
+            },
+            "fileType": "material"
+          },
+          "scriptName": "Clock3",
+          "children": []
+        },
+        {
+          "refer": {
+            "fileId": "l17ecgriu5-meqktx3m-0vchsupoahug",
+            "filePath": "Assets\\Materials\\Clocks\\Clock4.mat",
+            "_tag": {
+              "type": "GFileRefer"
+            },
+            "fileType": "material"
+          },
+          "scriptName": "Clock4",
+          "children": []
+        },
+        {
+          "refer": {
+            "fileId": "r9yhne2hre-meqktxh2-95odza2sn8j",
+            "filePath": "Assets\\Materials\\Clocks\\Clock5.mat",
+            "_tag": {
+              "type": "GFileRefer"
+            },
+            "fileType": "material"
+          },
+          "scriptName": "Clock5",
+          "children": []
+        },
+        {
+          "refer": {
+            "fileId": "x0jcmgh63q-meqktxo3-mkj8ulm5l9h",
+            "filePath": "Assets\\Materials\\Clocks\\Clock6.mat",
+            "_tag": {
+              "type": "GFileRefer"
+            },
+            "fileType": "material"
+          },
+          "scriptName": "Clock6",
+          "children": []
+        },
+        {
+          "refer": {
+            "fileId": "nob0c5pwx-meqkty8b-mve0cd87eal",
+            "filePath": "Assets\\Materials\\Clocks\\Clock7.mat",
+            "_tag": {
+              "type": "GFileRefer"
+            },
+            "fileType": "material"
+          },
+          "scriptName": "Clock7",
+          "children": []
+        },
+        {
+          "refer": {
+            "fileId": "ctsrw17rmuv-meqktyjy-q3yxrd5yhc8",
+            "filePath": "Assets\\Materials\\Clocks\\Clock8.mat",
+            "_tag": {
+              "type": "GFileRefer"
+            },
+            "fileType": "material"
+          },
+          "scriptName": "Clock8",
+          "children": []
+        },
+        {
+          "refer": {
+            "fileId": "52dc8cfjex-meqktyyb-hid1wbwg8",
+            "filePath": "Assets\\Materials\\Clocks\\Clock9.mat",
+            "_tag": {
+              "type": "GFileRefer"
+            },
+            "fileType": "material"
+          },
+          "scriptName": "Clock9",
+          "children": []
+        }
+      ]
     }
   },
   "children": []

@@ -69,6 +69,14 @@
         "type": "GFileRefer"
       },
       "fileType": "ugcscript"
+    },
+    {
+      "fileId": "0d95q6xvqnfj-meqlmrjg-vxh2i4xma2",
+      "filePath": "Assets\\Scripts\\Managers\\HintsManager.fcg",
+      "_tag": {
+        "type": "GFileRefer"
+      },
+      "fileType": "ugcscript"
     }
   ],
   "_entityName": "T_43_YU_WS_MODULE_GLOBAL",

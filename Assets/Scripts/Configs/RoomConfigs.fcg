@@ -23,7 +23,7 @@ static graph RoomConfigs {
     ROOM_SPAWN_POSITION Map<RoomQuest, Vector3> = Map<RoomQuest, Vector3>{
         RoomQuest.RoomQuest_1: Vector3{-3, 0, 0},
         RoomQuest.RoomQuest_2: Vector3{-60, -40.5, -30},
-        RoomQuest.RoomQuest_3: Vector3{-30, 13.5, -8},
+        RoomQuest.RoomQuest_3: Vector3{-30, 13.5, -23},
         RoomQuest.RoomQuest_4: Vector3{0, 0, 0},
     }
 
